@@ -14,6 +14,8 @@ public class AnaliseCombinatoria {
 		
 		int l = sequence.length();
 		
+		numberPermutation(l);
+		
 		if (l < 13) {
 			
 			for (int i = 0; i < l; i++) {
@@ -52,7 +54,7 @@ public class AnaliseCombinatoria {
 		
 		AnaliseCombinatoria ac = new AnaliseCombinatoria();
 		
-		ac.permutation("AA");
+		ac.permutation("123A");
 		
 	}
 	
