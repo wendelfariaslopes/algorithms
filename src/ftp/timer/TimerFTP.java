@@ -3,10 +3,7 @@ package ftp.timer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.faces.bean.ManagedBean;
 
-
-@ManagedBean (name="timerFTP")
 public class TimerFTP {  
     
     public static final long TEMPO_I = (1000 * 5); // atualiza o site a cada 1 minuto  

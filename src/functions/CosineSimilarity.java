@@ -96,9 +96,9 @@ private static double consineVectorSimilarity(int[] leftVector,
 
 public static void main(String[] args) {
     String left[] = { "Julie", "loves", "me", "more", "than", "Linda",
-            "loves", "me" };
-    String right[] = {  "me" , "loves", "me", "more", "than", "Linda",
-            "loves","Julie","Julie","Julie"};
+            "loves", "me" ,"aaaaa","nn","cccc"};
+    String right[] = {  "mmmmmmmmmmm" , "loves",  "more", "me", "than", "Linda",
+            "loves","me","aaaaa","nn","cccc"};
 //    String right[] = { "Julie", "loves", "me", "more", "than", "Cinda",
 //            "loves", "me" };
     System.out.println(consineTextSimilarity(left,right));
