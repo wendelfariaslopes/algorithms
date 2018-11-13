@@ -1,0 +1,27 @@
+Accueillir 	Corriger 	Gérer 	Proposer
+Acheter 	Créer                	Identifier 	Réaliser
+Analyser             	Décliner   	Illustrer            	Recevoir
+Animer 	Décrire 	Informer 	Rechercher
+Appliquer                 	Défendre 	Interpréter 	Récompenser
+Argumenter   	Définir            	Interroger            	Recruter
+Arranger 	Démontrer 	Interviewer 	Rédiger
+Assembler 	Développer   	Juger 	Réduire
+Associer 	Ecouter 	Justifier   	Relancer
+Assurer 	Écrire 	Lister 	Réparer
+Auditer 	Editer 	Manager 	Repérer
+Augmenter 	Elaborer 	Mémoriser 	Résoudre               
+Calculer 	Elargir 	Mettre en place   	Résumer
+Choisir              	Encadrer 	Mettre en relation      	Saisir
+Classer 	Estimer             	Modifier 	Schématiser
+Collecter   	Etablir 	Montrer 	Séduire      
+Communiquer 	Étudier   	Motiver 	Sélectionner                  
+Comparer 	Évaluer 	Négocier 	Soutenir  
+Comprendre 	Examiner 	Nommer 	Tenir
+Concevoir               	Expliquer                 	Opérer              	Tester  
+Conduire 	Fabriquer 	Optimiser 	Traduire
+Conseiller 	Faire 	Organiser 	Utiliser
+Construire    	Faire avancer 	Parler 	Valider               
+Contrôler 	Faire découvrir 	Piloter 	Valoriser
+Convaincre 	Faire mémoriser 	Planifier 	Vendre
+Coordonner 	Fidéliser 	Poser 	Visualiser  
+Copier 	Former 	Préparer un

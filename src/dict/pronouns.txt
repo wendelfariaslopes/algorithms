@@ -1,0 +1,437 @@
+    'er
+    everthang
+    every man Jack
+    everybody
+    everybody and their brother
+    everybody and their dog
+    everybuddy
+    everyone
+    everyone and his brother
+    everyone and their brother
+    everyone and their dog
+    everyone and their mother
+    everyone else
+    everythang
+    everythin'
+    everything
+    ey
+    feel
+    fele
+    few
+    fuck all
+    Godself
+    hawt
+    (s)he
+    he
+    He
+    he or she
+    he/she
+    hee
+    hella
+    hem
+    heorshe
+    her
+    her ass
+    her butt
+    Her Maj
+    Her Majesty
+    her nibs
+    Her Royal Highness
+    hern
+    her's
+    hers
+    herself
+    hes
+    him
+    Him
+    him/herself
+    Himself
+    himself
+    himselfe
+    himselve
+    hir
+    hirs
+    hirself
+    his
+    His
+    his ass
+    his butt
+    His Imperial Majesty
+    His Maj
+    His Majesty
+    his nibs
+    His Royal Highness
+    hisn
+    hisself
+    hit
+    hitself
+    hoo
+    hor
+    hse
+    hu
+    hym
+    I
+    i
+    I and I
+    ich
+    ilkon
+    ilkoon
+    'im
+    'is
+    it
+    its
+    itself
+    itt
+    ittself
+    jack shit
+    m'
+    mah
+    Majesty
+    many
+    me
+    me fein
+    me, myself and I
+    mee
+    meself
+    mickle
+    mine
+    missen
+    m'self
+    much
+    my ass
+    my butt
+    my nibs
+    myself
+    myselfe
+    myselven
+    myselves
+    naff all
+    naught
+    nauther
+    neither
+    nen
+    next to nothing
+    no matter what
+    no one
+    no-one
+    nobody
+    nobody's
+    nobuddy
+    none
+    noone
+    noöne
+    noot
+    not a one
+    not worth writing home about
+    nother
+    nothin
+    nothin'
+    nothing
+    nothing to write home about
+    nought
+    nowt
+    nuffin
+    nuffink
+    nuthin'
+    nuttin'
+    one
+    one and all
+    one another
+    one's
+    one's self
+    oneself
+    oot
+    othersome
+    ours
+    which
+    who
+    whom
+    whose
+    pers
+    theirs
+    thine
+    yours
+    he
+    her
+    him
+    I
+    it
+    me
+    my ass
+    she
+    thee
+    them
+    they
+    thou
+    us
+    we
+    ye
+    you
+    hereabout
+    hereabouts
+    hereafter
+    hereat
+    hereby
+    herein
+    hereinafter
+    hereinbefore
+    hereinto
+    hereof
+    hereon
+    hereto
+    heretofore
+    hereunder
+    hereunto
+    hereupon
+    herewith
+    herewithin
+    thereabout
+    thereacross
+    thereafter
+    thereagainst
+    therearound
+    thereat
+    therebeyond
+    thereby
+    therefor
+    therefore
+    therefrom
+    therein
+    thereinafter
+    thereof
+    thereon
+    thereover
+    therethrough
+    therethroughout
+    thereto
+    theretofore
+    thereunder
+    thereunto
+    thereupon
+    therewith
+    therewithal
+    therewithin
+    whereabout
+    whereabouts
+    whereafter
+    whereas
+    whereat
+    whereby
+    wherefore
+    wherefrom
+    wherein
+    whereinto
+    whereof
+    whereon
+    whereover
+    wherethrough
+    whereto
+    whereunder
+    whereupon
+    wherever
+    wherewith
+    wherewithal
+    wherewithin
+    wherewithout
+    what
+    whether
+    which
+    who
+    whom
+    whose
+    all
+    another
+    any
+    anybody
+    anybody else
+    anyone
+    anyone else
+    anything
+    both
+    each
+    either
+    everybody
+    everyone
+    everyone else
+    everything
+    few
+    many
+    neither
+    no one
+    nobody
+    none
+    nothing
+    one
+    several
+    some
+    somebody
+    someone
+    something
+    'e
+    'em
+    'emselves
+    'er
+    'im
+    'um
+    (s)he
+    all and sundry
+    any old thing
+    anybody
+    anyone
+    anything
+    aught
+    co
+    co's
+    coself
+    e
+    each other
+    eir
+    eirs
+    eirself
+    either
+    em
+    emself
+    every man Jack
+    everybody
+    everyone
+    everyone and their dog
+    everything
+    ey
+    fuck all
+    he
+    he or she
+    he/she
+    heorshe
+    her
+    hern
+    hers
+    herself
+    hes
+    him
+    himself
+    hir
+    hirs
+    hirself
+    his
+    hisn
+    hisself
+    hu
+    hym
+    it
+    its
+    itself
+    jack shit
+    naught
+    neither
+    no one
+    nobody
+    nothing
+    nought
+    nowt
+    noöne
+    one
+    one and all
+    one another
+    one's
+    oneself
+    owt
+    per
+    pers
+    perself
+    s/he
+    she
+    she or he
+    she/he
+    shi
+    sie
+    somebody
+    someone
+    something
+    theirn
+    theirs
+    theirself
+    theirselves
+    them
+    themself
+    themselves
+    they
+    they two
+    theyr
+    this
+    this and that
+    thon
+    thons
+    thonself
+    thor
+    thors
+    what have you
+    what's-his-face
+    what's-his-name
+    xe
+    xem
+    xyr
+    xyrself
+    you-know-what
+    you-know-who
+    ze
+    zirself
+    allyou
+    thee sen
+    thine
+    thyself
+    thysen
+    u
+    y'all
+    yer
+    you
+    yours
+    yourself
+    yourselves
+    yous
+    youse
+    'em
+    all
+    all and sundry
+    allyou
+    each other
+    every man Jack
+    everybody and their brother
+    everyone and his brother
+    everyone and their brother
+    everyone and their dog
+    everyone and their mother
+    everyone else
+    myselves
+    one and all
+    one another
+    ourselves
+    theirselves
+    them
+    themself
+    themselves
+    these
+    they
+    this and that
+    thyselves
+    us
+    we
+    y'all
+    yerselves
+    you
+    you all
+    you gals
+    you guys
+    yourselves
+    I
+    me
+    me fellow
+    mine
+    myself
+    myselves
+    ours
+    ourself
+    ourselves
+    us
+    we
+    we two
+    wor
