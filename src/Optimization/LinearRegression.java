@@ -6,16 +6,22 @@ import InputOutput.StdOut;
 public class LinearRegression { 
 
     public static void main(String[] args) { 
-        int MAXN = 5;
+    	
+    	
+    	
+    //    int MAXN = 5;
         int n = 0;
-        double[] x = new double[MAXN];
-        double[] y = new double[MAXN];
+        
+      double[] x = {1, 2, 3, 4,  5,  6,  7,  8,  9, 10};
+      double[] y = {3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
+        
+//        double[] x = new double[MAXN];
+//        double[] y = new double[MAXN];
 
         // first pass: read in data, compute xbar and ybar
         double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
-        while(!StdIn.isEmpty()) {
-            x[n] = StdIn.readDouble();
-            y[n] = StdIn.readDouble();
+        for(;n<x.length;) {
+      
             sumx  += x[n];
             sumx2 += x[n] * x[n];
             sumy  += y[n];
