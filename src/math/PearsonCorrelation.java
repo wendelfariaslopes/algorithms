@@ -6,6 +6,7 @@ public class PearsonCorrelation {
 
 	public static double calculeCoefficient(double[] x, double[] y) {
 		
+		
 		DecimalFormat df = new DecimalFormat("0.000");
 
 		double maX = 0;

@@ -4,13 +4,7 @@ import InputOutput.StdIn;
 import InputOutput.StdOut;
 
 /******************************************************************************
- *  Compilation:  javac RandomSurfer.java
- *  Execution:    java RandomSurfer trials
- *  Data files:   https://introcs.cs.princeton.edu/16pagerank/tiny.txt
- *                https://introcs.cs.princeton.edu/16pagerank/medium.txt
- *
- *  % java Transition < tiny.txt | java RandomSurfer 1000000
- *   0.27297 0.26583 0.14598 0.24729 0.06793
+
  *
  ******************************************************************************/
 
