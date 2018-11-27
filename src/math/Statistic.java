@@ -52,6 +52,164 @@ public class Statistic{
 		
 		return Math.sqrt(calculateVariace(list));
 	}
+	
+	
+	 /**
+     * Returns the average value in the specified array.
+     *
+     * @param  a the array
+     * @return the average value in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double mean(int[] a) {
+       
+        if (a.length == 0) return Double.NaN;
+        int sum = sum(a);
+        return 1.0 * sum / a.length;
+    }
+    
+    /**
+     * Returns the average value in the specified array.
+     *
+     * @param  a the array
+     * @return the average value in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double mean(double[] a) {
+        
+
+        if (a.length == 0) return Double.NaN;
+        double sum = sum(a);
+        return sum / a.length;
+    }
+    
+    /**
+     * Returns the sample variance in the specified array.
+     *
+     * @param  a the array
+     * @return the sample variance in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double var(int[] a) {
+
+        if (a.length == 0) return Double.NaN;
+        double avg = mean(a);
+        double sum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            sum += (a[i] - avg) * (a[i] - avg);
+        }
+        return sum / (a.length - 1);
+    }
+	
+	/**
+     * Returns the sample variance in the specified array.
+     *
+     * @param  a the array
+     * @return the sample variance in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double var(double[] a) {
+        
+
+        if (a.length == 0) return Double.NaN;
+        double avg = mean(a);
+        double sum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            sum += (a[i] - avg) * (a[i] - avg);
+        }
+        return sum / (a.length - 1);
+    }
+    
+    
+    /**
+     * Returns the population variance in the specified array.
+     *
+     * @param  a the array
+     * @return the population variance in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double varp(double[] a) {
+   
+        if (a.length == 0) return Double.NaN;
+        double avg = mean(a);
+        double sum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            sum += (a[i] - avg) * (a[i] - avg);
+        }
+        return sum / a.length;
+    }
+	
+    
+    /**
+     * Returns the sample standard deviation in the specified array.
+     *
+     * @param  a the array
+     * @return the sample standard deviation in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double stddev(double[] a) {
+      
+        return Math.sqrt(var(a));
+    }
+
+    /**
+     * Returns the sample standard deviation in the specified array.
+     *
+     * @param  a the array
+     * @return the sample standard deviation in the array {@code a[]};
+     *         {@code Double.NaN} if no such value
+     */
+    public static double stddev(int[] a) {
+
+        return Math.sqrt(var(a));
+    }
+    
+    
+    /**
+     * Returns the population standard deviation in the specified array.
+     *
+     * @param  a the array
+     * @return the population standard deviation in the array;
+     *         {@code Double.NaN} if no such value
+     */
+    public static double stddevp(double[] a) {
+        
+        return Math.sqrt(varp(a));
+    }
+    
+    /**
+     * Returns the sum of all values in the specified array.
+     *
+     * @param  a the array
+     * @return the sum of all values in the array {@code a[]};
+     *         {@code 0.0} if no such value
+     */
+    private static double sum(double[] a) {
+     
+        double sum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }
+        return sum;
+    }
+
+    
+    /**
+     * Returns the sum of all values in the specified array.
+     *
+     * @param  a the array
+     * @return the sum of all values in the array {@code a[]};
+     *         {@code 0.0} if no such value
+     */
+    private static int sum(int[] a) {
+        
+        int sum = 0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }
+        return sum;
+    }
+    
 	/*
 	 * Algumas publicações estabelecem critérios para classificação do coeficiente de variação, 
 	 * de acordo com dados de trabalhos com as variáveis estudadas, muitas vezes expressando essa 
