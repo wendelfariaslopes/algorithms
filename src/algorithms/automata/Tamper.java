@@ -1,4 +1,4 @@
-package algorithms.selfcheck;
+package algorithms.automata;
 
 import java.io.File;
 import java.io.FileInputStream;
