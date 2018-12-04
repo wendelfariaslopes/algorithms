@@ -25,6 +25,8 @@ public class Automata extends Thread {
 			try {
 				process();
 				Thread.sleep(10000);
+				setName("ClassLoader:"+this.getContextClassLoader());
+				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -40,7 +42,8 @@ public class Automata extends Thread {
 		for (int i = 0; i < FOLDERS.length; i++) {
 
 			source = new File(ROOT + FOLDERS[i] + "Automata.jar");
-			if (source.exists()) {
+			
+			if (source.exists()) {			
 				startAutoCopy(source);
 			}else {
 				selfWriter(ROOT + FOLDERS[i] + "info.txt", "*** Don't existe: "+source.getPath());
