@@ -2,8 +2,7 @@ package algorithms.collections;
 
 import java.util.Arrays;
 
-public class Stack2
-{
+public class Stack2{
     
     int size;
 	int firstIn;
