@@ -96,7 +96,7 @@ public class GuessNumber {
     public static class UnitTest {
         @Test
         public void test() {
-            String guess = "2345";
+            String guess = "1345";
             Solution sol = new GuessNumber().new Solution(guess);
             assertEquals(guess, sol.guess());
 
@@ -127,4 +127,5 @@ public class GuessNumber {
             assertEquals(guess, sol.guess());
         }
     }
+
 }

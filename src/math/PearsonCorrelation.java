@@ -20,9 +20,9 @@ public class PearsonCorrelation {
 			length = y.length;
 		}
 
-		System.out.println("   X   ,     Y   ");
+		//System.out.println("   X   ,     Y   ");
 		for (int i = 0; i < length; i++) {
-			System.out.println(df.format(x[i])+"  ,  "+df.format(y[i]));
+			//System.out.println(df.format(x[i])+"  ,  "+df.format(y[i]));
 			maX += x[i];
 			maY += y[i];
 		}
@@ -30,8 +30,8 @@ public class PearsonCorrelation {
 		maX = maX / length;
 		maY = maY / length;
 		
-		System.out.println("ma X  ,   ma Y");
-		System.out.println(df.format(maX)+"  , "+df.format(maY));
+		//System.out.println("ma X  ,   ma Y");
+		//System.out.println(df.format(maX)+"  , "+df.format(maY));
 		
 		
 		double [] desvioX = new double[length];
@@ -43,7 +43,7 @@ public class PearsonCorrelation {
 		double sdX = 0;
 		double sdY = 0;
 		
-		System.out.println("Diff X  , Diff Y");
+		//System.out.println("Diff X  , Diff Y");
 		for (int i = 0; i < length; i++) {
 			
 			desvioX[i] = x[i] - maX;
@@ -54,7 +54,7 @@ public class PearsonCorrelation {
 			sdY +=varY[i];
 			
 			dvXdvY += desvioX[i] * desvioY[i];
-			System.out.println(df.format(desvioX[i])+"  ,  "+df.format(desvioY[i]));
+			//System.out.println(df.format(desvioX[i])+"  ,  "+df.format(desvioY[i]));
 		}
 		double c = dvXdvY/length;
 		double covariancia = dvXdvY/(length-1);
@@ -65,7 +65,7 @@ public class PearsonCorrelation {
 		
 		System.out.println("Pearson Correlation = "+df.format(pearson));
 		
-		System.out.println("Covar in Pearson Correlation = "+df.format(c));
+		System.out.println("Covariance = "+df.format(c));
 		
 		return r;
 	}
