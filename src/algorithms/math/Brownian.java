@@ -1,7 +1,7 @@
-package math;
+package algorithms.math;
 
-import math.util.StdDraw;
-import math.util.StdRandom;
+import algorithms.io.StdDraw;
+import algorithms.io.StdRandom;
 
 /**
  * 

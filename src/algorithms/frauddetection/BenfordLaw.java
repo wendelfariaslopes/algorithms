@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import math.PearsonCorrelation;
+import algorithms.math.PearsonCorrelation;
 
 public class BenfordLaw {
 
