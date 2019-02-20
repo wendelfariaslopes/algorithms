@@ -1,4 +1,4 @@
-package math.util;
+package algorithms.io;
 
 /******************************************************************************
  *  Compilation:  javac StdRandom.java

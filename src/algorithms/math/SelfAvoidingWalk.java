@@ -1,4 +1,4 @@
-package math;
+package algorithms.math;
 
 /**
  * um caminho autoevitante é uma sequência de movimentos em um retículo que não
