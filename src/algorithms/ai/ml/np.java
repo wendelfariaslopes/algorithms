@@ -136,6 +136,32 @@ public class np {
         }
         return a;
     }
+    
+    public static Double[][] random(int m, int n, boolean t) {
+        Double[][] a = new Double[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = uniform(0.0, 1.0);
+            }
+        }
+        return a;
+    }
+    
+    /**
+     * @param m
+     * @param n
+     * @return random m-by-n matrix with values between 0 and 1
+     */
+    public static double[][] I(int m, int n) {
+        double[][] a = new double[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = 1.0;
+            }
+        }
+        return a;
+    }
+    
 
     /**
      * Transpose of a matrix
@@ -318,6 +344,26 @@ public class np {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 z[i][j] = (1.0 / (1 + Math.exp(-a[i][j])));
+            }
+        }
+        return z;
+    }
+    
+    
+    /**
+     * @param a matrix
+     * @return RELU of matrix a
+     */
+    public static double[][] relu(double[][] a) {
+        int m = a.length;
+        int n = a[0].length;
+        double[][] z = new double[m][n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+            		double x = Math.random()-0.5;
+            		if(x<0) x*=0.01;
+                z[i][j] = x;
             }
         }
         return z;
