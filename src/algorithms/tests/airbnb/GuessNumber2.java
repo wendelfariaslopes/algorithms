@@ -21,9 +21,7 @@ public class GuessNumber2 {
 	
 	public static boolean validate(int target) {
 		
-		while(validate) {
-			
-		}
+	
 		
 		return true;
 	}
