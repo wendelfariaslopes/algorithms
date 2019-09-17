@@ -1,7 +1,9 @@
 package algorithms.common;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * * JUnit test class to test various anagram program for various String input.

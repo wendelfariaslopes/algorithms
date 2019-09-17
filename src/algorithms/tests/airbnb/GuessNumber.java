@@ -1,10 +1,12 @@
 package algorithms.tests.airbnb;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.*;
 
-import org.junit.*;
+import org.junit.Test;
 
-import static org.junit.Assert.*;
+
 
 public class GuessNumber {
     /*
