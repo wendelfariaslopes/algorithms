@@ -1,12 +1,9 @@
 package algorithms.io;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
 import java.util.logging.Formatter;
 import java.util.logging.Logger;
-import java.util.logging.FileHandler;
-import java.util.logging.SimpleFormatter;
-
-
-import java.io.IOException;
 
 
 public class LoggerFile {
@@ -48,7 +45,7 @@ public class LoggerFile {
 		}
 		
 		for(int i=0; i< 100; i++ ) {
-			slf4j.warn("WARNING");
+			//slf4j.warn("WARNING");
 			jul.info("Logging info message = "+i);
 			jul.warning("Logging warn message = "+i);
 			jul.severe("Logging Severe message = "+i);
