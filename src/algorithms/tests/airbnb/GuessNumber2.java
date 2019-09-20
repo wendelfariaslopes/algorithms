@@ -17,7 +17,8 @@ public class GuessNumber2 {
 		}
 	}
 	
-	public static boolean validate(int target) {	
+	public static boolean validate(int target) {
+		
 		return true;
 	}
 	
