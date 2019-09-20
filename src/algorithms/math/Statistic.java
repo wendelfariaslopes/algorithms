@@ -1,5 +1,6 @@
 package algorithms.math;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Statistic {
@@ -278,5 +279,56 @@ public class Statistic {
 
 		return sd / average;
 	}
+	
+	
+	public static double getPearson(double[] x, double[] y) {
+		
+		double maX = 0;
+		double maY = 0;
+		int length = 1;
+
+		if (x.length <= y.length) {
+			length = x.length;
+		} else {
+			length = y.length;
+		}
+
+		for (int i = 0; i < length; i++) {
+			maX += x[i];
+			maY += y[i];
+		}
+
+		maX = maX / length;
+		maY = maY / length;
+		
+		double [] desvioX = new double[length];
+		double [] desvioY = new double[length];
+		double dvXdvY = 0;
+		
+		double [] varX = new double [length];
+		double [] varY = new double [length];
+		double sdX = 0;
+		double sdY = 0;
+		
+		for (int i = 0; i < length; i++) {
+			
+			desvioX[i] = x[i] - maX;
+			desvioY[i] = y[i] - maY;
+			varX[i] = Math.pow(desvioX[i], 2);
+			varY[i] = Math.pow(desvioY[i], 2);
+			sdX +=varX[i];
+			sdY +=varY[i];
+			
+			dvXdvY += desvioX[i] * desvioY[i];
+		}
+		double covariancia = dvXdvY/(length-1);
+		sdX = Math.sqrt(sdX/(length-1));
+		sdY = Math.sqrt(sdY/(length-1));
+		
+		double pearson = covariancia/(sdX*sdY);
+		
+		return pearson;
+	}
+
 
 }

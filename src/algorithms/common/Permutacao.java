@@ -30,7 +30,7 @@ public class Permutacao {
 		String[] saida ;
 		int[] exitInt;
 
-	    Permutacao p = new Permutacao(str, 8) ;
+	    Permutacao p = new Permutacao(str, 2) ;
 
 	    while (p.hasNext()) {
 	        saida = p.next();
@@ -44,8 +44,6 @@ public class Permutacao {
 	    
 	   // Permutacao p = new Permutacao(intArray, 2) ;
 	    
-	  
-
 	}
 	
 	

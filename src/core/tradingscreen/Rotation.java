@@ -27,9 +27,9 @@ public class Rotation {
     	
         DateTimeFormatter fmt = DateTimeFormat.forPattern("dd MMM yyyy");
         int weekendExtraCount = weekdayDevelopers.length;
-        
         LocalDate d = new LocalDate(2016, 1, 9);
        
+
         for (int i = 0; i < 60; ++i) {
             String weekdayCover = weekdayDevelopers[i%weekdayDevelopers.length];
             String weekendCover = weekdayCover;
