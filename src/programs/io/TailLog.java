@@ -43,7 +43,7 @@ public class TailLog implements Runnable {
 				long fileLength = tailFile.length();
 				if (fileLength > lastKnownPosition) {
 
-// Reading and writing file
+					// Reading and writing file
 					RandomAccessFile readWriteFileAccess = new RandomAccessFile(tailFile, "rw");
 					readWriteFileAccess.seek(lastKnownPosition);
 					String tailLine = null;

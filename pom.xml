@@ -83,6 +83,12 @@
 			<version>0.1.55</version>
 		</dependency>
 
+		<!-- to read last few lines of a File -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
 
 
 	</dependencies>
