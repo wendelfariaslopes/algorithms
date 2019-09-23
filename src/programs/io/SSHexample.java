@@ -11,6 +11,7 @@ import com.jcraft.jsch.SftpException;
 
 public class SSHexample {
 
+	
 	private static final String user = "wlopes";
 	private static final String password = "#Enrico#Emmy#912980";
 	private static final String host = "ny2-lia-001.prod.tradingscreen.com";
