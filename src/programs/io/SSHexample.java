@@ -15,6 +15,11 @@ public class SSHexample {
 	private static final String password = "#Enrico#Emmy#912980";
 	private static final String host = "ny2-lia-001.prod.tradingscreen.com";
 	private static final int port = 22;
+	
+	
+	private static final String TSOM_LOG_ARCHIVE = "/opt/versions/prodlogs/";
+	private static final String[] FOLDERS = {"current","prodlogs","prodlogs.0","prodlogs.1","prodlogs.2","prodlogs.3"};
+	private static final String LOG_FOLDER = "log";
 
 	public static void main(String[] args) {
 
