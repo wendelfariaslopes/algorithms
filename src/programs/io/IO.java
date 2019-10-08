@@ -41,7 +41,7 @@ public class IO {
 
 			// set the properties value
 			prop.setProperty("db.url", "localhost");
-			prop.setProperty("db.user", "mkyong");
+			prop.setProperty("db.user", "wlopes");
 			prop.setProperty("db.password", "password");
 
 			// save properties to project root folder

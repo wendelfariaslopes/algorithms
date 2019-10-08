@@ -1,8 +1,19 @@
 package programs.io;
 
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /* -*-mode:java; c-basic-offset:2; indent-tabs-mode:nil -*- */
 /**
- * This program will demonstrate SSH through jump hosts.
+ * This it will SSH through jump hosts.
  * Suppose that you don't have direct accesses to host2 and host3.
  *   $ CLASSPATH=.:../build javac JumpHosts.java
  *   $ CLASSPATH=.:../build java JumpHosts usr1@host1 usr2@host2 usr3@host3
@@ -11,9 +22,11 @@ package programs.io;
  * at host3.
  *
  */
-import com.jcraft.jsch.*;
-import java.awt.*;
-import javax.swing.*;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.UIKeyboardInteractive;
+import com.jcraft.jsch.UserInfo;
 
 public class JumpHosts {
  
