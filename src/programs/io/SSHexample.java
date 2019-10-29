@@ -22,15 +22,29 @@ public class SSHexample {
 	private static final String LOG_FOLDER = "log";
 
 	public static void main(String[] args) {
+		
+//		String localNameFile = "checklog.log";
+//		String remoteNameFile = "checklog-20190914-130124-cron.log";
+		
+//		String remote = "/data/versions/wiseguy/log/prod/checklog-20190914-130124-cron.log";
+//		String local = "/Users/wendellopes/IdeaProjects/slog/src/main/resources/input/" + localNameFile;
+		
+		// cd /app/versions/prodlogs/prodlogs.3/log
+		// ls -lrt tsom.19.a.log*
+		// tsom.19.a.log.15.gz
+		
+		String remotePath = "/app/versions/prodlogs/prodlogs.3/log/";
+		String remoteFileName = "tsom.19.a.log.15.gz";
+		
+		String localPath = "C:\\Users\\wlopes\\Downloads\\Logs\\";
+		String localFileName = remoteFileName;
+		
+		
+		String remote = remotePath + remoteFileName;
+		String local = localPath + localFileName;
 
 		SSHexample ssh = new SSHexample();
-
-		String localNameFile = "checklog.log";
-		String remoteNameFile = "checklog-20190914-130124-cron.log";
-
-		String remote = "/data/versions/wiseguy/log/prod/checklog-20190914-130124-cron.log";
-		String local = "/Users/wendellopes/IdeaProjects/slog/src/main/resources/input/" + localNameFile;
-
+		
 		try {
 			if (ssh.downloadFile(remote, local)) {
 				System.out.println("Sucess in download");

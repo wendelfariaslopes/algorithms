@@ -16,7 +16,7 @@ import com.jcraft.jsch.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class JumpHosts {
+public class JumpHosts2 {
 
 	public static void main(String[] arg) {
 
@@ -41,7 +41,8 @@ public class JumpHosts {
 			host = host.substring(host.indexOf('@') + 1);
 
 			sessions[0] = session = jsch.getSession(user, host, 22);
-			session.setUserInfo(new MyUserInfo());
+			session.setPassword("#Enrico#Emmy#912980");
+			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect();
 			System.out.println("The session has been established to " + user + "@" + host);
 
@@ -53,18 +54,23 @@ public class JumpHosts {
 				int assinged_port = session.setPortForwardingL(0, host, 22);
 				System.out.println("portforwarding: " + "localhost:" + assinged_port + " -> " + host + ":" + 22);
 				sessions[i] = session = jsch.getSession(user, "127.0.0.1", assinged_port);
-
-				session.setUserInfo(new MyUserInfo());
+				
+				session.setPassword("#Enrico#Emmy#912980");
+				session.setConfig("StrictHostKeyChecking", "no");
+				System.out.println("Establishing Connection...");
 				session.setHostKeyAlias(host);
 				session.connect();
+				System.out.println("Connection established.");
+				System.out.println("Creating SFTP Channel.");
+			
 				System.out.println("The session has been established to " + user + "@" + host);
 			}
 
 			ChannelSftp sftp = (ChannelSftp) session.openChannel("sftp");
 			sftp.connect();
 			
-			String remote = "/app/versions/prodlogs/prodlogs.3/log/tsom.19.a.log.14.gz";
-			String local = "C:\\Users\\wlopes\\Downloads\\Logs\\tsom.19.a.log.14.gz";
+			String remote = "/app/versions/prodlogs/prodlogs.3/log/tsom.19.a.log.12.gz";
+			String local = "C:\\Users\\wlopes\\Downloads\\Logs\\tsom.19.a.log.12.gz";
 		
 			try {
 				System.out.println("----------------- Started download ----------------");
