@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,7 +37,7 @@ public class SearchGroup {
         Matcher m = p.matcher(text);
         int i = 1;
         while(m.find()) {
-            //System.out.println("Palavra " + i + ": " + m.group());
+            System.out.println("Palavra " + i + ": " + m.group());
             result.add(m.group());
             i++;
         }
@@ -49,7 +48,7 @@ public class SearchGroup {
 	public static void main(String []args) {
 		
 		String textFinal = "";
-		int i = 1;
+		
 		
 		try {
 		      FileReader arq = new FileReader(NAME);
@@ -57,7 +56,7 @@ public class SearchGroup {
 
 		      String linha = lerArq.readLine();
 		      textFinal = linha;
-		      
+		      int i = 1;
 		      
 		      while (linha != null) {
 		        System.out.printf("%s\n", linha);

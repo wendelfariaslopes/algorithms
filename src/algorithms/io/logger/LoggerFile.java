@@ -1,4 +1,4 @@
-package algorithms.io;
+package algorithms.io.logger;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;

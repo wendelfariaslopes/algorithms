@@ -1,4 +1,4 @@
-package converter;
+package algorithms.strings;
 
 import java.io.IOException;
 import java.io.StreamTokenizer;
