@@ -1,5 +1,16 @@
 package programs.io;
 
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /* -*-mode:java; c-basic-offset:2; indent-tabs-mode:nil -*- */
 /**
  * This program will demonstrate SSH through jump hosts.
@@ -11,12 +22,17 @@ package programs.io;
  * at host3.
  *
  */
-
-import com.jcraft.jsch.*;
-import java.awt.*;
-import javax.swing.*;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
+import com.jcraft.jsch.UIKeyboardInteractive;
+import com.jcraft.jsch.UserInfo;
 
 public class JumpHosts2 {
+	
+	private static final String remote = "/app/versions/prodlogs/prodlogs.3/log/tsom.19.a.log.12.gz";
+	private static final String local = "C:\\Users\\wlopes\\Downloads\\Logs\\tsom.19.a.log.12.gz";
 
 	public static void main(String[] arg) {
 
@@ -69,22 +85,14 @@ public class JumpHosts2 {
 			ChannelSftp sftp = (ChannelSftp) session.openChannel("sftp");
 			sftp.connect();
 			
-			String remote = "/app/versions/prodlogs/prodlogs.3/log/tsom.19.a.log.12.gz";
-			String local = "C:\\Users\\wlopes\\Downloads\\Logs\\tsom.19.a.log.12.gz";
-		
-			try {
-				System.out.println("----------------- Started download ----------------");
-				sftp.get(remote, local);
-				System.out.println("----------------- Finished download ----------------");
-				System.out.println();
-			} catch (SftpException e) {
-				System.out.println(e);
-			}
+			System.out.println();
+			System.out.println("----------------- Started download ----------------");
+			download(sftp, remote, local);
+			System.out.println("----------------- Finished download ----------------");
+			System.out.println();
 			
 			
-		
 			sftp.disconnect();
-
 			for (int i = sessions.length - 1; i >= 0; i--) {
 				sessions[i].disconnect();
 			}
@@ -96,16 +104,12 @@ public class JumpHosts2 {
 	
 	private static boolean download(ChannelSftp sftp, String fromRemote, String toLocal) {
 		try {
-			System.out.println("----------------- Started download ----------------");
 			sftp.get(fromRemote, toLocal);
-			System.out.println("----------------- Finished download ----------------");
-			System.out.println();
 			return true;
 		} catch (SftpException e) {
 			System.out.println(e);
 			return false;
 		}
-		
 	}
 
 	public static class MyUserInfo implements UserInfo, UIKeyboardInteractive {
