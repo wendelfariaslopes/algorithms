@@ -1,12 +1,12 @@
 package algorithms.math;
 
-import java.time.LocalDate;
-import java.util.*;
+import static java.lang.Math.exp;
+import static java.lang.Math.sqrt;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
-
-import static java.lang.Math.sqrt;
-import static java.lang.Math.exp;
 
 public class BrownianWienerProcess {
 	
