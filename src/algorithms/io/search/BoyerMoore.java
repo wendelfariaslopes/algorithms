@@ -1,5 +1,10 @@
 package algorithms.io.search;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
+
 /**
  * Boyer–Moore string-search algorithm is an efficient string-searching
  * algorithm that is the standard benchmark for practical string-search
@@ -9,6 +14,24 @@ package algorithms.io.search;
  *
  */
 public class BoyerMoore {
+	
+	public static String pathChooser() {
+
+		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+		String fileName = System.getProperty("user.dir") + File.separator;
+
+		jfc.setDialogTitle("Choose one file: ");
+		jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		jfc.setAcceptAllFileFilterUsed(false);
+		int returnValue = jfc.showOpenDialog(null);
+
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = jfc.getSelectedFile();
+			fileName = selectedFile.getAbsolutePath();
+		}
+		return fileName;
+	}
 	
 	/**
      * Returns the index within this string of the first occurrence of the
