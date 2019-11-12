@@ -10,7 +10,7 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 /**
  * Classe Responsavel pela infraestrutura de utilidades gerais da camada de
@@ -120,16 +120,16 @@ public class JsfUtil {
 
 	}
 
-	public static HttpSession getSession() {
-
-		FacesContext ctx = FacesContext.getCurrentInstance();
-
-		HttpSession session = (HttpSession) ctx.getExternalContext()
-				.getSession(false);
-
-		return session;
-
-	}
+//	public static HttpSession getSession() {
+//
+//		FacesContext ctx = FacesContext.getCurrentInstance();
+//
+//		HttpSession session = (HttpSession) ctx.getExternalContext()
+//				.getSession(false);
+//
+//		return session;
+//
+//	}
 
 	public static void setAttribute(String valorObjeto, Object tipoObjeto) {
 
