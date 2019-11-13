@@ -9,6 +9,20 @@
 	<name>Algorithms</name>
 
 	<dependencies>
+	
+		<!-- https://mvnrepository.com/artifact/org.quickfixj/quickfixj-all -->
+		<dependency>
+			<groupId>org.quickfixj</groupId>
+			<artifactId>quickfixj-all</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>28.0-jre</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.easymock</groupId>
