@@ -6,8 +6,8 @@ import java.net.URISyntaxException;
 import javax.faces.FacesException;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpSession;
 
 /**
  * Captura sessao do usuario corrente
@@ -30,16 +30,16 @@ public class ContextoUtil {
 		//return contextoBean;
 	//}
 
-	public static String getRequestURL() {
-
-		Object request = FacesContext.getCurrentInstance().getExternalContext()
-				.getRequest();
-		if (request instanceof HttpServletRequest) {
-			return ((HttpServletRequest) request).getRequestURL().toString();
-		} else {
-			return "";
-		}
-	}
+//	public static String getRequestURL() {
+//
+//		Object request = FacesContext.getCurrentInstance().getExternalContext()
+//				.getRequest();
+//		if (request instanceof HttpServletRequest) {
+//			return ((HttpServletRequest) request).getRequestURL().toString();
+//		} else {
+//			return "";
+//		}
+//	}
 
 	public static String getApplicationUri() {
 		  try {

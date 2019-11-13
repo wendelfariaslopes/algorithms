@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.net.URI;
+import java.util.Arrays;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JApplet;
@@ -37,7 +39,7 @@ public class LoggerReader extends JApplet {
    private static final long serialVersionUID = 1L;
 
    private final class RunnableImplementation implements Runnable {
-      private static final String LOG_FILE_URI = "/Users/wendellopes/Downloads/Logger/sample.log.0";
+      private static final String LOG_FILE_URI = "C:\\Users\\wlopes\\Downloads\\Logger\\tradesmart.log";
       private final JTable table;
 
       private RunnableImplementation(JTable table) {
@@ -47,7 +49,7 @@ public class LoggerReader extends JApplet {
       @Override
       public void run() {
          try {
-            File f = new File(new URI(LOG_FILE_URI));
+            File f = new File(LOG_FILE_URI);
 
             long lengthRead = 0;
 
@@ -55,45 +57,53 @@ public class LoggerReader extends JApplet {
                if (f.length() > lengthRead) {
                   BufferedReader br = new BufferedReader(new FileReader(f));
 
-                  DefaultTableModel model = (DefaultTableModel) table.getModel();
+                  //DefaultTableModel model = (DefaultTableModel) table.getModel();
                   while (br.ready()) {
                      String readLine = br.readLine();
-                     while (br.ready()) {
-                        if (readLine.startsWith("2011-")) {
-                           String time = readLine.subSequence(12, 20).toString();
-                           
-                           String rest = readLine.substring(20);
-                           Pattern p = Pattern.compile("[A-Z]");
-                           String[] split = p.split(rest);
-                           String packagee = split[0].substring(split[0].indexOf(".") + 1);
-                           
-                           String[] split2 = rest.substring(split[0].length()).split(" ");
-                           String clazz = split2[0];
-                           String method = split2[1];
-
-                           readLine = br.readLine();
-
-                           split = readLine.split(":");
-                           String level = split[0];
-                           String text = split[1];
-                           for (String string : split) {
-                              text = text.concat(string);
-                           }
-
-                           model.insertRow(0, new Object[] { level, time, packagee, clazz, method, text });
-
-                           readLine = br.readLine();
-                           while (!readLine.startsWith("2011-") && br.ready()) {
-                              text = readLine;
-                              readLine = br.readLine();
-                              model.insertRow(0, new Object[] { "", "", "", "", "", text });
-                           }
-                        } else {
-                           throw new RuntimeException("parse error :'" + readLine + "'");
-                        }
-
-                     }
-
+                     
+//                     Pattern pattern = Pattern.compile("\\[(.*?)\\]");
+//                     
+//                     Matcher matcher = pattern.matcher(readLine);
+//                     if (matcher.find()) {
+//                         System.out.println(matcher.group(0)+ " ---- "+matcher.group(1)+ " +++ "+matcher.groupCount());
+//                     }
+                     
+                  String r2 = "\\]\\[";
+                     String[] ss = readLine.split(r2);
+                     System.out.println(Arrays.asList(ss));
+                     
+                     
+                   
+//                     String time = readLine.subSequence(12, 20).toString();
+//                           
+//                     String rest = readLine.substring(20);
+//                           
+//                     Pattern p = Pattern.compile("[A-Z]");
+//                           String[] split = p.split(rest);
+//                           String packagee = split[0].substring(split[0].indexOf(".") + 1);
+//                           
+//                           String[] split2 = rest.substring(split[0].length()).split(" ");
+//                           String clazz = split2[0];
+//                           String method = split2[1];
+//
+//                           readLine = br.readLine();
+//
+//                           split = readLine.split(":");
+//                           String level = split[0];
+//                           String text = split[1];
+//                           for (String string : split) {
+//                              text = text.concat(string);
+//                           }
+//
+//                           model.insertRow(0, new Object[] { level, time, packagee, clazz, method, text });
+//
+////                           readLine = br.readLine();
+////                         while (!readLine.startsWith("2019-") && br.ready()) {
+////                              text = readLine;
+////                              readLine = br.readLine();
+////                              model.insertRow(0, new Object[] { "", "", "", "", "", text });
+////                         }
+                     
                   }
 
                   lengthRead = f.length();
