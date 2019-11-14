@@ -1,4 +1,4 @@
-package InputOutput;
+package algorithms.io;
 
 /******************************************************************************
  *  Compilation:  javac StdIn.java

@@ -1,6 +1,5 @@
 package Optimization;
 
-import InputOutput.StdOut;
 import Jama.Matrix;
 import Jama.QRDecomposition;
 
@@ -65,7 +64,7 @@ public class MultipleLinearRegression {
         
         MultipleLinearRegression regression = new MultipleLinearRegression(x, y);
 
-        StdOut.printf("%.2f + %.2f beta1 + %.2f beta2  (R^2 = %.2f)\n",
+        System.out.printf("%.2f + %.2f beta1 + %.2f beta2  (R^2 = %.2f)\n",
                       regression.beta(0), regression.beta(1), regression.beta(2), regression.R2());
     }
 }

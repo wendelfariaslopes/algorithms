@@ -49,7 +49,6 @@ package algorithms.io;
 
 import java.util.Random;
 
-import InputOutput.StdOut;
 
 /**
  *  The {@code StdRandom} class provides static methods for generating

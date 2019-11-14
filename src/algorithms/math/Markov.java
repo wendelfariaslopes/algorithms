@@ -1,7 +1,7 @@
 package algorithms.math;
 
-import InputOutput.StdIn;
-import InputOutput.StdOut;
+import algorithms.io.StdIn;
+import algorithms.io.StdOut;
 
 /******************************************************************************
  

@@ -1,6 +1,6 @@
 package algorithms.math;
 
-import InputOutput.StdOut;
+import algorithms.io.StdOut;
 
 /******************************************************************************
  *  Function to compute the Gaussian pdf (probability density function)
