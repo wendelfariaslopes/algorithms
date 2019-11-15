@@ -1,20 +1,34 @@
 package algorithms.trading;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Order {
 	
 	private String id;
+	private String company;
 	private String type;
 	private double price;
-	private Instrument instrument;
 	private int quantity;
+	private Instrument instrument;
+	private Map<Integer,Instrument> mapShareOrdered;
+	private Map<Integer,Instrument> mapShareExecuted;
 
 	public Order(String id, String type, double price, Instrument instrument, int quantity) {
 		super();
 		this.id = id;
 		this.type = type;
 		this.price = price;
-		this.instrument = instrument;
 		this.quantity = quantity;
+		
+		if(this.quantity > 0) {
+			mapShareOrdered = new HashMap<>();
+			for (int i = 0; i < this.quantity; i++) {
+				mapShareOrdered.put(i, new Instrument(id, this.instrument.getRic(), this.price));
+			}
+			mapShareExecuted = new HashMap<>();
+		}
 	}
 	
 	public String getId() {

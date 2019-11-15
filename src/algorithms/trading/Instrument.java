@@ -2,10 +2,19 @@ package algorithms.trading;
 
 public class Instrument {
 	
+	private String orderId;
 	private String id;
 	private String type;
 	private String name;
 	private String ric;
+	private double price;
+	
+	public Instrument(String orderId, String ric, double price) {
+		super();
+		this.orderId = orderId;
+		this.ric = ric;
+		this.price = price;
+	}
 	
 	public String getId() {
 		return id;
@@ -30,6 +39,22 @@ public class Instrument {
 	}
 	public void setRic(String ric) {
 		this.ric = ric;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	
