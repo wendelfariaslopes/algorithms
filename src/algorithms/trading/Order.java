@@ -21,14 +21,15 @@ public class Order {
 		this.type = type;
 		this.price = price;
 		this.quantity = quantity;
+		this.instrument=instrument;
 		
-		if(this.quantity > 0) {
-			mapShareOrdered = new HashMap<>();
-			for (int i = 0; i < this.quantity; i++) {
-				mapShareOrdered.put(i, new Instrument(id, this.instrument.getRic(), this.price));
-			}
-			mapShareExecuted = new HashMap<>();
-		}
+//		if(this.quantity > 0) {
+//			mapShareOrdered = new HashMap<>();
+//			for (int i = 0; i < this.quantity; i++) {
+//				mapShareOrdered.put(i, new Instrument(id, this.instrument.getRic(), this.price));
+//			}
+//			mapShareExecuted = new HashMap<>();
+//		}
 	}
 	
 	public String getId() {
