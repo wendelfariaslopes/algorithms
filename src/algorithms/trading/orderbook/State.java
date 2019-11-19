@@ -1,4 +1,4 @@
-package algorithms.trading;
+package algorithms.trading.orderbook;
 
 public class State {
     //                                                   name                    atStart alive  pending done   pendingAck
