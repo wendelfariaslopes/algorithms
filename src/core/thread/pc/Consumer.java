@@ -1,14 +1,13 @@
 package core.thread.pc;
 
 import java.util.Vector;
-import java.util.concurrent.atomic.AtomicLong;
 
 class Producer extends Thread {
  
     static final int MAXQUEUE = 10;
     private Vector<String> messages = new Vector<String>();
     
-    private AtomicLong quantity;
+    //private AtomicLong quantity;
  
     @Override
     public void run() {
@@ -43,7 +42,7 @@ class Producer extends Thread {
         }
         int i = 0;
         while(messages.size() >= 3 ) {
-        	message = (String) messages.firstElement();
+        	message = messages.firstElement();
         	++i;
         	System.out.println("Removendo mensagem "+i+") "+ message);
             messages.removeElement(message);

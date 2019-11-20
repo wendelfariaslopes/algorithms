@@ -17,7 +17,8 @@ import quickfix.fix42.NewOrderSingle;
 public class SimulationOrderTest {
 
 	public static void main(String[] args) {
-		System.out.println("test ");
+
+		
 
 	}
 	

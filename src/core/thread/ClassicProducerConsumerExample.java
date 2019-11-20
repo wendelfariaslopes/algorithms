@@ -7,7 +7,8 @@ public class ClassicProducerConsumerExample {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		Buffer buffer = new Buffer(2);
+		Buffer buffer = new Buffer(5);
+		
 		Thread producerThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -52,7 +53,7 @@ public class ClassicProducerConsumerExample {
 						wait();
 					}
 					list.add(value);
-					System.out.println("Produced " + value);
+					System.out.println("Produced " + value+" size = "+list.size());
 					value++;
 					// notify the consumer
 					notify();
@@ -69,7 +70,7 @@ public class ClassicProducerConsumerExample {
 						wait();
 					}
 					int value = list.poll();
-					System.out.println("Consume " + value);
+					System.out.println("Consume " + value+" size = "+list.size());
 					// notify the producer
 					notify();
 					Thread.sleep(1000);
