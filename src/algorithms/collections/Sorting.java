@@ -3,94 +3,99 @@ package algorithms.collections;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class Sorting {
 
 	public static void main(String[] args) {
 
-		List<Order> listBids = getOrdersBid(10, 5, 0);
-		List<Order> listAsks = getOrdersAsk(20, 9, 4);
-		
-		Map<Order,Order> book = new HashMap<>();
+		List<Order> listBids = getOrdersBid(5, 5, 0);
+		List<Order> listAsks = getOrdersAsk(100, 10, 0);
+
+		Map<Order, Order> book = new HashMap<>();
 
 		// lambda here!
-		listBids.sort((o1, o2) -> o1.getQuantity() - o2.getQuantity());
-
-		System.out.println();
-		System.out.println("After Sort descending");
-
+		listBids.sort((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
 		// lambda here!
-		listAsks.sort((o1, o2) -> o2.getQuantity() - o1.getQuantity());
+		listAsks.sort((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
 		
-		// java 8 only, lambda also, to print the List
-		//listBids.forEach((Order) -> System.out.println(Order));
+		List<String> list = new ArrayList<>();
 
-		// java 8 only, lambda also, to print the List
-		//listAsks.forEach((Order) -> System.out.println(Order));
-		
-		Set<Order> askSet = new HashSet<>();
-		
-			for(Order bid: listBids) {
-				for(Order ask: listAsks) {
-					if(!ask.isMatched() && (bid.getPrice().doubleValue()==ask.getPrice().doubleValue())) {
-						book.put(bid, ask);
-						askSet.add(ask);
-						ask.setMatched(true);
-					}
+		for (int i = 0; i < listBids.size(); i++) {
+			for (int j = 0; j < listAsks.size(); j++) {			
+					Order bid = listBids.get(i);
+					Order ask = listAsks.get(j);
+					
+					if (!bid.isMatched() && !ask.isMatched() && bid.getPrice().doubleValue() == ask.getPrice().doubleValue()) {
+						listBids.get(i).setMatched(true);
+						listAsks.get(j).setMatched(true);
+						//book.put(bid, ask);
+						System.out.println(bid+" <-> "+ask);
+						list.add(bid+" <-> "+ask);
+
+//						listAsks.remove(j);
+//						listAsks = new ArrayList<>(listAsks);
+//
+//						listBids.remove(i);
+//						listBids = new ArrayList<>(listBids);
 				}
 			}
-			
-		
-		System.out.println(book.size() );	
-		
-		book.forEach((b,a) -> System.out.println(b+" <-> "+a));
-		
-		System.out.println(askSet.size());
-		askSet.forEach(x->System.out.println(x));
-		
+		}
 
+//		System.out.println("Bid-Ask list matched total = " + book.size());
+//		System.out.println("");
+//		book.forEach((b, a) -> System.out.println(b + " " + b.isMatched() + " <-> " + a + " " + a.isMatched()));
+		
+		System.out.println("Bid-Ask list matched total = " + list.size());
+		System.out.println("");
+//		list.forEach(l -> System.out.println(l));
+
+		//System.out.println("");
+		//System.out.println("Bid list without matched total = " + listBids.size());
+		//System.out.println("");
+		
+	
+		listBids.stream().filter(b-> b.isMatched()==false).forEach(b -> System.out.println(b + " " + b.isMatched()));
+		//System.out.println("");
+		//System.out.println("Ask list without matched total = " + listAsks.size());
+		System.out.println("");
+		listAsks.stream().filter(a-> a.isMatched()==false).forEach(a -> System.out.println(a + " " + a.isMatched()));
 
 	}
-	
-	
 
-	
 	private static List<Order> getOrdersBid(int size, int high, int low) {
-		
+
 		List<Order> list = new ArrayList<Order>();
 
-		for(int i = 0; i < size; i++) {
-			
-			list.add(new Order(i,"ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 5)));
+		for (int i = 0; i < size; i++) {
+
+			list.add(new Order(i + "-bid", "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 5)));
 		}
 
 		return list;
 
 	}
-	
+
 	private static List<Order> getOrdersAsk(int size, int high, int low) {
 		Random r = new Random();
 		List<Order> list = new ArrayList<Order>();
 
-		for(int i = 0; i < size; i++) {
-			
-			list.add(new Order(i,"ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 20) ));
+		for (int i = 0; i < size; i++) {
+
+			list.add(new Order(i + "-ask", "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 20)));
 		}
 
 		return list;
 
 	}
-	
+
 	private static int volatility(int high, int low) {
 		Random r = new Random();
-		return (r.nextInt(high-low) + low);
+		return (r.nextInt(high - low) + low);
 	}
-	
+
 	private static int volume(int base, int variation) {
 		Random r = new Random();
 		return base + r.nextInt(variation);
@@ -100,14 +105,14 @@ public class Sorting {
 
 class Order {
 
-	private int id;
+	private String id;
 	private String stock;
 	private BigDecimal price;
 	private int quantity;
-	
+
 	private boolean matched;
 
-	public Order(int id, String stock, BigDecimal price, int quantity) {
+	public Order(String id, String stock, BigDecimal price, int quantity) {
 		super();
 		this.id = id;
 		this.stock = stock;
@@ -115,11 +120,11 @@ class Order {
 		this.quantity = quantity;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -157,7 +162,7 @@ class Order {
 
 	@Override
 	public String toString() {
-		return id + "@" + quantity + "@" + price+ " matched:"+matched;
+		return id + "@" + quantity + "@" + price;
 
 	}
 }
