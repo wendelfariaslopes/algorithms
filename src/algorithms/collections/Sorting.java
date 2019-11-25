@@ -14,8 +14,6 @@ public class Sorting {
 		List<Order> listBids = getOrdersBid(700000, 8, 0);
 		List<Order> listAsks = getOrdersAsk(700000, 11, 3);
 		
-		
-		
 		System.out.println("Ask Grouping");
 		long start = System.currentTimeMillis();
 		Grouping.sortedMapUsingParallel(Grouping.groupByPriceUsingParallel(listAsks)).forEach((price,list) -> System.out.println(list.size()+"@"+price+" "+list));
