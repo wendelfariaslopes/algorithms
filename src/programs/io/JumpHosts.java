@@ -75,8 +75,6 @@ public class JumpHosts {
 				System.out.println(e);
 			}
 			
-			
-		
 			sftp.disconnect();
 
 			for (int i = sessions.length - 1; i >= 0; i--) {

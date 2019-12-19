@@ -11,6 +11,8 @@ import com.jcraft.jsch.SftpException;
 import com.jcraft.jsch.SftpProgressMonitor;
 
 public class DownloadFile {
+	
+	private static final String PATH_SHELL_SCRIPTS="C:\\Users\\wlopes\\eclipse-workspace\\codec\\src\\codec\\shell\\";
 
 	private static final String[] APP_WITHOUT_LIFE_CYCLE = { "complianceserver-1-a@ny2-lab-001.prod.tradingscreen.com",
 			"complianceserver-1-b@ny2-lab-002.prod.tradingscreen.com",
@@ -40,8 +42,8 @@ public class DownloadFile {
 
 	private static final String user = "wlopes";
 	private static final String password = "#Enrico#Emmy#912980";
-	private static final String host = "ny2-lia-001.uatdev.tradingscreen.com"; // UAT-DEV machine for wiseguy
-	// private static final String host = "ny2-lia-001.uatprod.tradingscreen.com";
+	//private static final String host = "ny2-lia-001.uatdev.tradingscreen.com"; // UAT-DEV machine for wiseguy
+	private static final String host = "ny2-lia-001.uatprod.tradingscreen.com";
 	// // UAT-DEV machine for wiseguy
 	// private static final String host = "ny2-lia-001.prod.tradingscreen.com"; //
 	// PROD machine for wiseguy
@@ -49,12 +51,12 @@ public class DownloadFile {
 
 	public static void main(String[] args) {
 
-		String remote = "/data/versions/wiseguy/log/uatdev/checklog-20191126-133449-cron.log";
+		String remote = "/data/versions/wiseguy/log/uatprod/checklog-20191129-153653-cron.log";
 
 		// String remote =
 		// "/data/versions/wiseguy/log/prod/status-20191108-195145-adhoc.log"; // My
 		// MacBook
-		String local = "C:\\Users\\wlopes\\IdeaProjects\\slog\\src\\main\\resources\\input\\checklog-20191126-133449-cron.log"; // local
+		String local = "C:\\Users\\wlopes\\IdeaProjects\\slog\\src\\main\\resources\\input\\checklog-20191129-153653-cron.log"; // local
 																																// windows
 																																// machine
 

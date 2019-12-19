@@ -1,9 +1,12 @@
 package programs.io;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.math3.optim.nonlinear.scalar.LineSearch;
 
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
@@ -11,7 +14,9 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
-public class Connect {
+public class Connect2 {
+	
+	private static List<String> lines = new ArrayList<>();
 
 	private static final String SSH_PROD = "ssh.prod";
 	private static final String SSH_UAT_PROD = "ssh.uatprod";
@@ -70,7 +75,7 @@ public class Connect {
 			System.out.println();
 			System.out.println();
 
-			String s = sendCommand2(Property.read("grep.failed"), session);
+			String s = sendCommand2(Property.read("grep.failed.to.start"), session);
 
 			System.out.println(s);
 
@@ -130,7 +135,8 @@ public class Connect {
 
 		return outputBuffer.toString();
 	}
-
+	
+	
 	public static String sendCommand2(String command, Session session) {
 		StringBuilder outputBuffer = new StringBuilder();
 
@@ -149,7 +155,14 @@ public class Connect {
 					if (i < 0)
 						break;
 
-					System.out.print(new String(tmp, 0, i));
+					//System.out.print(new String(tmp, 0, i));
+					
+					String line = new String(tmp, 0, i);
+					if(!line.isEmpty() && line.trim().length()>2) {
+						lines.add("+++  "+line.trim());
+					}
+					
+					
 				}
 
 				if (channel.isClosed()) {
@@ -162,6 +175,8 @@ public class Connect {
 				} catch (Exception ee) {
 				}
 			}
+			
+			lines.forEach(l-> System.out.println(l));
 
 			channel.disconnect();
 		} catch (IOException ioX) {
