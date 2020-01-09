@@ -1,68 +1,102 @@
 package programs.io;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-import org.junit.Test;
 
 public class IO {
 
-	private static final String P = "/Users/wendellopes/eclipse-workspace/algorithms/src/programs/io/test/command-lines.properties";
 
-
-	//User's current working directory
-	private static final String CURRENT_DIRECTORY = System.getProperty("user.dir");
-
-	public static boolean propertiesWriter(String path) {
-
-		if (!path.endsWith(".properties")) {
-			path += ".properties";
+	private static final String FILE_TYPE = ".properties";
+	// User's current working directory
+	private static final String DIR = System.getProperty("user.dir") + File.separator + "Files" + File.separator;
+	
+	public static void main (String[] args) {
+		
+	
+		if(createDir(DIR)) {
+			System.out.println("Create directory: " + DIR);
+		} else {
+			System.out.println("Didn't create directory: "+ DIR);
 		}
 		
-		File temp;
-		try {
-			temp = File.createTempFile("myTempFile", ".txt");
-
-			boolean exists = temp.exists();
-
-			System.out.println("Temp file exists : " + exists);
-		} catch (IOException e) {
-			e.printStackTrace();
+		Map<String,String> map = new HashMap<>();
+		
+		for(int i=1; i < 11; i++) {
+			map.put(IO.class.getSimpleName()+"."+i, i+"");
 		}
+		
+		
+		if(propWrite(IO.class.getSimpleName(), map)) {
+			System.out.println("Yes" );
+		}else {
+			System.out.println("NO" );
+		}
+		
+		System.out.println(propRead(IO.class.getSimpleName(), IO.class.getSimpleName()+".4"));
+	
+		
+	}
 
-		try (OutputStream output = new FileOutputStream(path)) {
+	public static boolean propWrite(String fileName, Map<String, String> map) {
 
+		try (OutputStream output = new FileOutputStream(DIR + fileName + FILE_TYPE)) {
 			Properties prop = new Properties();
-
 			// set the properties value
-			prop.setProperty("db.url", "localhost");
-			prop.setProperty("db.user", "mkyong");
-			prop.setProperty("db.password", "password");
-
+			map.forEach((k, v) -> {
+				prop.setProperty(k, v);
+			});
 			// save properties to project root folder
 			prop.store(output, null);
-
-			System.out.println(prop);
-
 			return true;
-
 		} catch (IOException io) {
 			io.printStackTrace();
 			return false;
 		}
-
 	}
 
-	@Test
-	public void writer_tester() {
-		System.out.println();
+	public static String propRead(String fileName, String key) {
 
-		assertTrue(propertiesWriter(P));
+		String value = "";
+
+		try (InputStream input = new FileInputStream(DIR + fileName + FILE_TYPE)) {
+			Properties prop = new Properties();
+			// load a properties file
+			prop.load(input);
+			// get the property value and print it out
+			return prop.getProperty(key);
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		return value;
+	}
+
+	public static boolean createDir(String nameDir) {
+		boolean status = false;
+		Path path = Paths.get(DIR);
+		// if directory exists?
+		if (!Files.exists(path)) {
+			try {
+				Files.createDirectories(path);
+				status = true;
+			} catch (IOException e) {
+				// fail to create directory
+				e.printStackTrace();
+			}
+		}
+		return status;
 	}
 
 }
