@@ -30,6 +30,7 @@ import java.util.Scanner;
 
 public class threadexample {
 	public static void main(String[] args) throws InterruptedException {
+		
 		final PC pc = new PC();
 
 		// Create a thread object that calls pc.produce()

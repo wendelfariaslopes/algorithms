@@ -1,6 +1,11 @@
 package com.organon.oms;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * This is a java program to solve a matching problem for stable marriage
@@ -22,7 +27,7 @@ import java.util.*;
  * number between 1 and n in order of preference, marry the men and women
  * together such that there are no two people of opposite gender who would both
  * rather have each other than their current partners. If there are no such
- * people, all the marriages are “stable”.
+ * people, all the marriages are ï¿½stableï¿½.
  * 
  * Here is the source code of the Java Program to Solve a Matching Problem for a
  * Given Specific Case. The Java program is successfully compiled and run on a
@@ -33,10 +38,13 @@ import java.util.*;
  */
 
 public class MatchingProblemStableMarriage {
+	
 	static List<String> guys = Arrays
 			.asList(new String[] { "abe", "bob", "col", "dan", "ed", "fred", "gav", "hal", "ian", "jon" });
+	
 	static List<String> girls = Arrays
 			.asList(new String[] { "abi", "bea", "cath", "dee", "eve", "fay", "gay", "hope", "ivy", "jan" });
+	
 	static Map<String, List<String>> guyPrefers = new HashMap<String, List<String>>() {
 		private static final long serialVersionUID = 1L;
 		{
@@ -69,10 +77,13 @@ public class MatchingProblemStableMarriage {
 	};
 
 	public static void main(String[] args) {
+		
 		Map<String, String> matches = match(guys, guyPrefers, girlPrefers);
+		
 		for (Map.Entry<String, String> couple : matches.entrySet()) {
 			System.out.println(couple.getKey() + " is engaged to " + couple.getValue());
 		}
+		
 		if (checkMatches(guys, girls, matches, guyPrefers, girlPrefers)) {
 			System.out.println("Marriages are stable");
 		} else {
@@ -89,11 +100,12 @@ public class MatchingProblemStableMarriage {
 		}
 	}
 
-	private static Map<String, String> match(List<String> guys, Map<String, List<String>> guyPrefers,
-			Map<String, List<String>> girlPrefers) {
+	private static Map<String, String> match(List<String> guys, Map<String, List<String>> guyPrefers,Map<String, List<String>> girlPrefers) {
+		
 		Map<String, String> engagedTo = new TreeMap<String, String>();
 		List<String> freeGuys = new LinkedList<String>();
 		freeGuys.addAll(guys);
+		
 		while (!freeGuys.isEmpty()) {
 			String thisGuy = freeGuys.remove(0); // get a load of THIS guy
 			List<String> thisGuyPrefers = guyPrefers.get(thisGuy);
@@ -117,8 +129,8 @@ public class MatchingProblemStableMarriage {
 		return engagedTo;
 	}
 
-	private static boolean checkMatches(List<String> guys, List<String> girls, Map<String, String> matches,
-			Map<String, List<String>> guyPrefers, Map<String, List<String>> girlPrefers) {
+	private static boolean checkMatches(List<String> guys, List<String> girls, Map<String, String> matches,Map<String, List<String>> guyPrefers, Map<String, List<String>> girlPrefers) {
+		
 		if (!matches.keySet().containsAll(girls)) {
 			return false;
 		}

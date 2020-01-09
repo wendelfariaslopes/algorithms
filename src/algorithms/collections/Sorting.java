@@ -2,19 +2,28 @@ package algorithms.collections;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class Sorting {
 
 	public static void main(String[] args) {
 
-		List<Order> listBids = getOrdersBid(5, 5, 0);
-		List<Order> listAsks = getOrdersAsk(100, 10, 0);
-
-		Map<Order, Order> book = new HashMap<>();
+		List<Order> listBids = getOrdersBid(700000, 8, 0);
+		List<Order> listAsks = getOrdersAsk(700000, 11, 3);
+		
+		System.out.println("Ask Grouping");
+		long start = System.currentTimeMillis();
+		Grouping.sortedMapUsingParallel(Grouping.groupByPriceUsingParallel(listAsks)).forEach((price,list) -> System.out.println(list.size()+"@"+price+" "+list));
+		long end = System.currentTimeMillis();
+		
+		System.out.println(end - start);
+		
+		System.out.println("Bid Grouping");
+		start = System.currentTimeMillis();
+		Grouping.sortedMap(Grouping.groupByPrice(listBids)).forEach((price,list) -> System.out.println(list.size()+"@"+price+" "+list));
+		end = System.currentTimeMillis();
+		System.out.println(end - start);
 
 		// lambda here!
 		listBids.sort((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
@@ -44,24 +53,38 @@ public class Sorting {
 			}
 		}
 
-//		System.out.println("Bid-Ask list matched total = " + book.size());
-//		System.out.println("");
-//		book.forEach((b, a) -> System.out.println(b + " " + b.isMatched() + " <-> " + a + " " + a.isMatched()));
-		
-		System.out.println("Bid-Ask list matched total = " + list.size());
-		System.out.println("");
-//		list.forEach(l -> System.out.println(l));
 
-		//System.out.println("");
-		//System.out.println("Bid list without matched total = " + listBids.size());
-		//System.out.println("");
-		
-	
-		listBids.stream().filter(b-> b.isMatched()==false).forEach(b -> System.out.println(b + " " + b.isMatched()));
-		//System.out.println("");
-		//System.out.println("Ask list without matched total = " + listAsks.size());
-		System.out.println("");
-		listAsks.stream().filter(a-> a.isMatched()==false).forEach(a -> System.out.println(a + " " + a.isMatched()));
+//		listBids.sort((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
+//		listAsks.sort((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
+//
+//		// Match Engine
+//		System.out.println();
+//		System.out.println("Pariedades encontradas: ");
+//
+//		for (int i = 0; i < listBids.size(); i++) {
+//			for (int j = 0; j < listAsks.size(); j++) {
+//				Order bid = listBids.get(i);
+//				Order ask = listAsks.get(j);
+//				if (!bid.isMatched() && !ask.isMatched()
+//						&& (bid.getPrice().doubleValue() == ask.getPrice().doubleValue())) {
+//					System.out.println(bid + " <-> " + ask);
+//					bid.setMatched(true);
+//					ask.setMatched(true);
+//				}
+//			}
+//		}
+
+//		Predicate<Order> matchedNo = o -> !o.isMatched();
+//		Predicate<Order> matchedYes = o -> o.isMatched();
+//
+//		long sizeBidNoMatched = listBids.stream().filter(matchedNo).count();
+//		long sizeAskNoMathced = listAsks.stream().filter(matchedNo).count();
+//
+//		long sizeBidMatchedYes = listBids.stream().filter(matchedYes).count();
+//		long sizeAskMathcedYes = listAsks.stream().filter(matchedYes).count();
+
+
+
 
 	}
 
@@ -70,21 +93,19 @@ public class Sorting {
 		List<Order> list = new ArrayList<Order>();
 
 		for (int i = 0; i < size; i++) {
-
-			list.add(new Order(i + "-bid", "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 5)));
+			String id = i + "bid";
+			list.add(new Order(id, "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 5)));
 		}
-
 		return list;
-
 	}
 
 	private static List<Order> getOrdersAsk(int size, int high, int low) {
-		Random r = new Random();
 		List<Order> list = new ArrayList<Order>();
 
 		for (int i = 0; i < size; i++) {
+			String id = i + "ask";
+			list.add(new Order(id, "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 20)));
 
-			list.add(new Order(i + "-ask", "ABC", new BigDecimal(10 + volatility(high, low)), volume(100, 20)));
 		}
 
 		return list;
@@ -100,69 +121,9 @@ public class Sorting {
 		Random r = new Random();
 		return base + r.nextInt(variation);
 	}
+	
+	
+
 
 }
 
-class Order {
-
-	private String id;
-	private String stock;
-	private BigDecimal price;
-	private int quantity;
-
-	private boolean matched;
-
-	public Order(String id, String stock, BigDecimal price, int quantity) {
-		super();
-		this.id = id;
-		this.stock = stock;
-		this.price = price;
-		this.quantity = quantity;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getStock() {
-		return stock;
-	}
-
-	public void setStock(String stock) {
-		this.stock = stock;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public boolean isMatched() {
-		return matched;
-	}
-
-	public void setMatched(boolean matched) {
-		this.matched = matched;
-	}
-
-	@Override
-	public String toString() {
-		return id + "@" + quantity + "@" + price;
-
-	}
-}

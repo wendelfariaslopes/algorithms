@@ -10,7 +10,7 @@ public class Optimization {
 	private static final int HOURS = 60*MINUTES;
 
 	public static boolean isFaisable(int n, int k, int timeToProcessEach) {
-		return (combinations(n, k)/timeToProcessEach) < 5*MINUTES?true:false;
+		return (combinations(n, k)/timeToProcessEach) < 5*MINUTES ? true:false;
 	}
 
 	/**

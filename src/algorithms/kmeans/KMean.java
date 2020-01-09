@@ -1,4 +1,4 @@
-package clustering;
+package algorithms.kmeans;
 
 import java.io.*;
 import java.lang.*;
