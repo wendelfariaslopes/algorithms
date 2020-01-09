@@ -13,12 +13,12 @@ import com.jcraft.jsch.SftpProgressMonitor;
 public class DownloadFile {
 	
 	private static final String PATH_LOCAL_SHELL_SCRIPTS="C:\\Users\\wlopes\\eclipse-workspace\\codec\\src\\codec\\shell\\";
-	private static final String PATH_REMOTE_SERVICE="/data/versions/ts/current/bin/";
+	private static final String PATH_REMOTE_SERVICE="//data/versions/wiseguy/log/prod/checklog-20191123-102145-cron.log";
 
 
 	private static final String user = "wlopes";
 	private static final String password = "#Enrico#Emmy#912980";
-	private static final String host = "ny2-lia-001.uatdev.tradingscreen.com"; // UAT-DEV machine for wiseguy
+	private static final String host = "ny2-lia-001.prod.tradingscreen.com"; // UAT-DEV machine for wiseguy
 	//private static final String host = "ny2-lia-001.uatprod.tradingscreen.com";
 	// // UAT-DEV machine for wiseguy
 	// private static final String host = "ny2-lia-001.prod.tradingscreen.com"; //
@@ -27,8 +27,8 @@ public class DownloadFile {
 
 	public static void main(String[] args) {
 
-		String remote = PATH_REMOTE_SERVICE+"service.cf";
-		String local = PATH_LOCAL_SHELL_SCRIPTS+"service.";
+		String remote = PATH_REMOTE_SERVICE;
+		String local = PATH_LOCAL_SHELL_SCRIPTS+"checklog-20191123-102145-cron.log";
 
 		DownloadFile df = new DownloadFile();
 
