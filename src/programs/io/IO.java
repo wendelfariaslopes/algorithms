@@ -42,9 +42,7 @@ public class IO {
 		}else {
 			System.out.println("NO" );
 		}
-	
 		System.out.println(propRead(IO.class.getSimpleName(), IO.class.getSimpleName()+".4"));
-		
 	}
 
 	public static boolean propWrite(String fileName, Map<String, String> map) {
