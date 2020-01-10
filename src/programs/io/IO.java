@@ -42,9 +42,8 @@ public class IO {
 		}else {
 			System.out.println("NO" );
 		}
-		
-		System.out.println(propRead(IO.class.getSimpleName(), IO.class.getSimpleName()+".4"));
 	
+		System.out.println(propRead(IO.class.getSimpleName(), IO.class.getSimpleName()+".4"));
 		
 	}
 
