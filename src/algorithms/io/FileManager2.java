@@ -31,7 +31,6 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
 
@@ -162,9 +161,6 @@ public class FileManager2 {
 		}
 		
 	}
-	
-	
-	
 	
 	public static String metaInfJSON(Path file) {
 
@@ -332,7 +328,6 @@ public class FileManager2 {
 			System.out.println(msg);
 		}
 	}
-
 
 	public static boolean copy(String fileFrom, String fileTO) {
 
