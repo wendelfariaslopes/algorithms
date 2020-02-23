@@ -1,6 +1,5 @@
 package algorithms.math;
 
-import algorithms.io.StdDraw;
 import algorithms.io.StdRandom;
 
 /**
@@ -33,18 +32,22 @@ import algorithms.io.StdRandom;
 public class Brownian {
 
 	// midpoint displacement method
-	public static void curve(double x0, double y0, double x1, double y1, double var, double s) {
+	public static void curve(int i, double x0, double y0, double x1, double y1, double var, double s) {
+	
+		System.out.println("("+x0+", "+y0+", "+x1+", "+y1+")");
+		
 		// stop if interval is sufficiently small
 		if (Math.abs(x1 - x0) < 0.01) {
-			StdDraw.line(x0, y0, x1, y1);
+			
+			algorithms.io.StdDraw.line(x0, y0, x1, y1);
 			return;
 		}
 
 		double xm = (x0 + x1) / 2;
 		double ym = (y0 + y1) / 2;
 		ym = ym + StdRandom.gaussian(0, Math.sqrt(var));
-		curve(x0, y0, xm, ym, var / s, s);
-		curve(xm, ym, x1, y1, var / s, s);
+		curve(i, x0, y0, xm, ym, var / s, s);
+		curve(i, xm, ym, x1, y1, var / s, s);
 	}
 
 	public static void main(String[] args) {
@@ -56,7 +59,8 @@ public class Brownian {
 		double y0 = 0.5;
 		double x1 = 1.0;
 		double y1 = 0.5;
+		int i = 0;
 		
-		curve(x0, y0, x1, y1, var, smoothness);
+		curve(i, x0, y0, x1, y1, var, smoothness);
 	}
 }

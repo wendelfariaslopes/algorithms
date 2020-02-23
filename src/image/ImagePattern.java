@@ -8,9 +8,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
 
-import javax.faces.context.FacesContext;
 import javax.imageio.ImageIO;
 //import javax.servlet.ServletContext;
 
@@ -61,14 +59,10 @@ public class ImagePattern {
 	        File file = new File(DIR+"/"+"simple_"+name);
 	    
 	        ImageIO.write(new_img, "JPG", file); 
-	        
-	        
-	  
-	        
 	     
 	  }
 	   
-	  private static double scale(int w, int h, int size){
+	private static double scale(int w, int h, int size){
 	    	double s = 1.0;
 	    	double fator = 1.0;
 	    	if(w >= h){

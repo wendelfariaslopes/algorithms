@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Jama.Matrix;
-import algorithms.math.Statistic;
 
 public class RNN {
 
@@ -63,9 +62,13 @@ public class RNN {
 
 		
 		
-		double[][] X = { { 0.1,0.2,0.3,0.4 }, { 0.1,0.2,0.3,0.4 }, { 0.12,0.22,0.32,0.42 }, { 0.11,0.21,0.33,0.42 }, { 0.11,0.21,0.31,0.41 } };// X --> Object to be analyzed (with only relevant attributes?)
+		double[][] X = { { 0.1,0.2,0.3,0.3 }, { 0.1,0.2,0.3,0.49 }, { 0.12,0.22,0.32,0.42 }, { 0.11,0.21,0.33,0.52 }, { 0.11,0.21,0.31,0.31 },
+				{ 0.1,0.2,0.3,0.3 }, { 0.1,0.2,0.3,0.49 }, { 0.12,0.22,0.32,0.42 }, { 0.11,0.21,0.33,0.52 }, { 0.11,0.21,0.31,0.31 } ,
+				{ 0.1,0.2,0.3,0.3 }, { 0.1,0.2,0.3,0.49 }, { 0.12,0.22,0.32,0.42 }, { 0.11,0.21,0.33,0.52 }, { 0.11,0.21,0.31,0.31 } };// X --> Object to be analyzed (with only relevant attributes?)
 		
-		double[][] Y = { { 0.5 }, { 0.5 }, { 0.5 }, { 0.5 }, { 0.5 } };// Y --> Value attributed to the analyzed object
+		double[][] Y = { { 0 }, { 1 }, { 1}, { 1}, { 0 },
+				{ 0 }, { 1 }, { 1 }, { 1 }, { 0 },
+				{ 0 }, { 1}, { 1}, { 1 }, { 0 }};// Y --> Value attributed to the analyzed object
 		
 		verifyTrainingIO(X, Y);
 		
@@ -122,7 +125,7 @@ You will also learn later about regularization, which lets you use very large mo
 		
 		 */
 
-		for (int i = 0; i < 4000; i++) {
+		for (int i = 0; i < 100000; i++) {
 
 			// Implement Forward Propagation to calculate A2 (probabilities)
 			// LAYER 1
@@ -168,7 +171,7 @@ You will also learn later about regularization, which lets you use very large mo
 			W2 = np.subtract(W2, np.multiply(lr, dW2));
 			b2 = np.subtract(b2, np.multiply(lr, db2));
 
-			if (i % 400 == 0) {
+			if (i % 10000 == 0) {
 				np.print("==============");
 				np.print("Cost = " + cost);
 				np.print("Predictions = " + Arrays.deepToString(A2));
@@ -177,18 +180,21 @@ You will also learn later about regularization, which lets you use very large mo
 				B1 = new Matrix(b1);
 				w2 = new Matrix(W2);
 				B2 = new Matrix(b2);
-
-				sd = Statistic.stddevp(A2[0]);
-				variance = Statistic.var(A2[0]);
-				mean = Statistic.mean(A2[0]);
-
+//
+//				sd = Statistic.stddevp(A2[0]);
+//				variance = Statistic.var(A2[0]);
+//				mean = Statistic.mean(A2[0]);
+//				System.out.println(Arrays.toString(A2[0]));
+			
 			}
 
 		}
 
-		np.print("Average = " + mean);
-		np.print("Variance = " + variance);
-		np.print("Standard deviation = " + sd);
+		
+		
+//		np.print("Average = " + mean);
+//		np.print("Variance = " + variance);
+//		np.print("Standard deviation = " + sd);
 		// np.print("===== W1 and b1 =====");
 		// w1.print(0, 3);
 		// B1.print(0, 3);

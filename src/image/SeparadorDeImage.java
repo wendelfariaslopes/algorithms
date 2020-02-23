@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -275,7 +274,7 @@ public class SeparadorDeImage {
 
     private static BufferedImage carregarImagem() throws IOException {
     	
-    	File file = new File("/Users/wendellopes/Documents/workspaceLunaJava/PureJava/69Wj9.jpg");
+    	File file = new File("/Users/wendellopes/git/algorithms/src/image/image2.jpg");
     	
         try {
 //        	return ImageIO.read(new URL("/Users/wendellopes/Documents/workspaceLunaJava/PureJava/69Wj9.jpg"));

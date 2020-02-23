@@ -90,6 +90,8 @@ public class NN {
         double[][] Z2 = np.add(np.dot(w2.getArray(), A1), B2.getArray());
         double[][] A2 = np.sigmoid(Z2);
         
+        
+        np.print("z2 = " + Arrays.deepToString(w2.getArray()));
         np.print("Predictions Final = " + Arrays.deepToString(A2));
     }
 }
