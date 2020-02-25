@@ -80,7 +80,7 @@ public class NN {
 //        w2.print(0, 3);
 //        B2.print(0, 3);
         
-        double[][] XF = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
+        double[][] XF = {{0, 0}, {0, 0}, {0, 0}, {0, 0}};
         XF = np.T(XF);
         
         // LAYER 1
