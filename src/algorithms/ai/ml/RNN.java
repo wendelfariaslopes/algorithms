@@ -22,16 +22,7 @@ public class RNN {
 	public static void main(String[] args) {
 		
 		
-			//Case 1 :
-			double a = 3, b = 8;
-			double x1= 3, x2 = 4;
-			double y1 = a*x1 + b*x2;
-			// y1 = 41
-			System.out.print(y1);
-			//Case 2 :
-			//x1 = 3 x2 = 4
-			//y = 41
-			//In case 2, we don’t know a and b, but we know the value of y.
+	
 
 		// First, let's get the dataset you will work on. Dataset into variables X and
 		// Y.
@@ -71,11 +62,27 @@ public class RNN {
 		// Y.length --> number of rows (lines) --> number of outputs
 		// double[][] Y = {{0.5}, {0.5}};
 
-		double[][] X = { { 3, 4}, { 3.1, 3.9}};// X --> Object to be analyzed (with only relevant
+		double[][] X = { { 0.3, 0.4}, { 0.31, 0.39}, { 0.10, 0.2}};// X --> Object to be analyzed (with only relevant
 																		// attributes?)
 
-		double[][] Y = { { 41 }, { 41 } };// Y --> Value attributed to the analyzed object
+		double[][] Y = { { 0.41 }, { 0.41 }, {} };// Y --> Value attributed to the analyzed object
 
+		
+		
+		
+		//Case 1 :
+		double a = 0.3, b = 0.8;
+		double x1= 0.3, x2 = 0.4;
+		
+		double y1 = a*x1 + b*x2;
+		// y1 = 41
+		System.out.print(y1);
+		//Case 2 :
+		//x1 = 3 x2 = 4
+		//y = 41
+		//In case 2, we don’t know a and b, but we know the value of y.
+
+		
 		// verifyTrainingIO(X, Y);
 
 		int m = Y.length;
@@ -136,12 +143,12 @@ public class RNN {
 			// Implement Forward Propagation to calculate A2 (probabilities)
 			// LAYER 1
 			double[][] Z1 = np.add(np.dot(W1, X), b1);
-			//double[][] A1 = np.sigmoid(Z1);
-			double[][] A1 = np.relu(Z1);
+			double[][] A1 = np.sigmoid(Z1);
+			//double[][] A1 = np.relu(Z1);
 			// LAYER 2
 			double[][] Z2 = np.add(np.dot(W2, A1), b2);
-			//double[][] A2 = np.sigmoid(Z2);
-			double[][] A2 = np.relu(Z2);
+			double[][] A2 = np.sigmoid(Z2);
+			//double[][] A2 = np.relu(Z2);
 
 			// Now that you have computed A[2] (in the Python variable "A2"), which contains
 			// a[2](i)
@@ -194,7 +201,7 @@ public class RNN {
 //				sd = Statistic.stddevp(A2[0]);
 //				variance = Statistic.var(A2[0]);
 //				mean = Statistic.mean(A2[0]);
-//				System.out.println(Arrays.toString(A2[0]));
+				System.out.println(Arrays.toString(A2[0]));
 
 			}
 
@@ -244,7 +251,7 @@ public class RNN {
 //		double[][] Z2 = np.add(np.dot(w2.getArray(), A1), B2.getArray());
 //		double[][] A2 = np.sigmoid(Z2);
 //
-//		np.print("Predictions Final = " + Arrays.deepToString(A2));
+		//np.print("Predictions Final = " + Arrays.deepToString(A2));
 		//np.print("Predictions Final = " + Arrays.deepToString(A2));
 	}
 
