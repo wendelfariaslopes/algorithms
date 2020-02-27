@@ -9,16 +9,13 @@ import com.google.gson.Gson;
 
 import Jama.Matrix;
 
-public class RNN {
+public class RNNTest {
 
 	private static Matrix w1;
 	private static Matrix w2;
 	private static Matrix B1;
 	private static Matrix B2;
 
-	private static double sd; // standard deviation
-	private static double variance;
-	private static double mean;
 
 	public static void main(String[] args) {
 		

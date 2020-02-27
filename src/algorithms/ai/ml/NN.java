@@ -12,6 +12,9 @@ public class NN {
 	private static Matrix B2;
   
     public static void main(String[] args) {
+    	
+    	
+    	
   
         double[][] X = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
         double[][] Y = {{0}, {1}, {1}, {0}};
@@ -94,4 +97,18 @@ public class NN {
         np.print("z2 = " + Arrays.deepToString(w2.getArray()));
         np.print("Predictions Final = " + Arrays.deepToString(A2));
     }
+    
+    
+    public static void verify( double[][] info) {
+    	
+    	// LAYER 1
+        double[][] Z1 = np.dot(w1.getArray(), info);
+        double[][] A1 = np.sigmoid(Z1);
+        //LAYER 2
+        double[][] Z2 = np.dot(w2.getArray(), A1);
+        double[][] A2 = np.sigmoid(Z2);
+    	
+    }
+    
+    
 }
