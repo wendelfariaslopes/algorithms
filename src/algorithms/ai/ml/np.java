@@ -435,4 +435,12 @@ public class np {
     public static void print(String val) {
         System.out.println(val);
     }
+    
+    public static void print(double[] val) {
+    	System.out.print(Arrays.toString(val));
+    }
+    
+    public static void print(double[][] val) {
+    	System.out.print(Arrays.deepToString(val));
+    }
 }
