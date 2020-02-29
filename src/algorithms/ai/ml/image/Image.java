@@ -1,6 +1,7 @@
 package algorithms.ai.ml.image;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,19 +15,19 @@ import javax.swing.JOptionPane;
 public class Image {
 
 	private static final String DIR = "/Users/wendellopes/git/algorithms/src/image";
-	
+
 	private static final String DIR_TO_SAVE = "/Users/wendellopes/Downloads/DeepLearningImages";
-	
+
 	public static final int SIZE_PATTERN = 200;
 
 	public static void main(String[] args) throws IOException {
 		String pathImage = pathChooser(DIR);
 
 		String name = JOptionPane.showInputDialog("Choose Name Image");
-			
-		if(saveImage(carregarImagem(pathImage), name)) {
-			System.out.println("Image saved "+ name);
-		}else {
+
+		if (saveImage(carregarImagem(pathImage), name)) {
+			System.out.println("Image saved " + name);
+		} else {
 			System.err.print("Problems when tried to save!");
 		}
 
@@ -67,11 +68,11 @@ public class Image {
 
 		return fileName;
 	}
-	
+
 	public static boolean saveImage(BufferedImage imagem, String name) {
 
 		boolean status = false;
-		
+
 		int w = imagem.getWidth();
 		int h = imagem.getHeight();
 
@@ -94,6 +95,26 @@ public class Image {
 			e.printStackTrace();
 		}
 		return status;
+	}
+	
+	public static boolean store(BufferedImage image, String name) {
+
+		boolean status = false;
+
+		File file = new File(DIR_TO_SAVE + File.separator + name + ".jpg");
+		try {
+			ImageIO.write(image, "jpg", file);
+			status = true;
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		return status;
+	}
+
+	public static BufferedImage crop(BufferedImage src, Rectangle rect) {
+		BufferedImage dest = src.getSubimage(0, 0, rect.width, rect.height);
+		return dest;
 	}
 
 	private static double scale(int w, int h, int size) {
