@@ -42,6 +42,9 @@ public class RNNTest {
 					
 				}
 				Y[m][0] = 1; // igual ao Cat (valor 1)
+				
+				
+				
 			}else {
 				// dados in bytes
 				for (int n = 0; n < numBytes; n++) {
@@ -50,17 +53,18 @@ public class RNNTest {
 				Y[m][0] = 0; // diff Cat (valor 0)
 			}
 			
-			if(Y[m][0]==1){
-				System.out.println("It is a Cat!");
-			}else {
-				System.out.println("Not a Cat!");
-			}
+//			if(Y[m][0]==1){
+//				System.out.println("It is a Cat!");
+//			}else {
+//				System.out.println("Not a Cat!");
+//			}
+//			
+//			System.out.println(g.toJson(Y[m])+" = "+g.toJson(X[m]));
 			
-			System.out.println(g.toJson(Y[m])+" = "+g.toJson(X[m]));
 			
 		}
 		
-		
+		learnFunction(X, Y);
 		
 		
 		//learnFunction(X, Y);
