@@ -18,13 +18,11 @@ public class ChannelSplitter {
 			System.err.println("Problem");
 		}
 		
-
 	}
 	
 	private static BufferedImage readImage(String path) {
 		BufferedImage img = null;
 	    File f = null;
-
 	    //read image
 	    try{
 	      f = new File(path);
@@ -32,14 +30,12 @@ public class ChannelSplitter {
 	    }catch(IOException e){
 	      System.out.println(e);
 	    }
-	    
 	    return img;
 	}
 	
 	private static boolean writeBlueImage(BufferedImage img, String path) {
 		
 		boolean status = false;
-		
 		int width = img.getWidth();
 	    int height = img.getHeight();
 	    
@@ -48,21 +44,16 @@ public class ChannelSplitter {
 	    int[] redLayer = getRedLayer(img);
 	    int[] greenLayer = getGreenLayer(img);
 	    
-	    
-	    		
-
 		File f = null;
 		  int v = 0;
 		for(int i=0; i < height; i++) {
 			for(int j=0; j < width ; j++) {
 				
 				int p = (alphaLayer[v]<<24) | (redLayer[v]<<16) | (greenLayer[v]<<8) | blueLayer[v];
-				
 				//int p = img.getRGB(i,j);
-				
 				//get alpha
 			   // int a = (p>>24) & 0xff;
-			    int a = 0;
+	
 
 			    //get red
 			    int r = 0;
