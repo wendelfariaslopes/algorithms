@@ -1,4 +1,4 @@
-package algorithms.ai.ml;
+package algorithms.ai.ml.image;
 
 import java.awt.Container;
 import java.awt.Graphics2D;

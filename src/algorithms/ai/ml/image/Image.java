@@ -1,4 +1,4 @@
-package algorithms.ai.ml;
+package algorithms.ai.ml.image;
 
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -22,10 +22,8 @@ public class Image {
 	public static void main(String[] args) throws IOException {
 		String pathImage = pathChooser(DIR);
 
-	
 		String name = JOptionPane.showInputDialog("Choose Name Image");
-	
-		
+			
 		if(saveImage(carregarImagem(pathImage), name)) {
 			System.out.println("Image saved "+ name);
 		}else {
