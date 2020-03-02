@@ -1,4 +1,4 @@
-package lexical;
+package algorithms.strings;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

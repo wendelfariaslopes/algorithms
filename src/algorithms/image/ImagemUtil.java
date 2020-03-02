@@ -1,4 +1,5 @@
 <<<<<<< Upstream, based on origin/master
+<<<<<<< Upstream, based on origin/master
 package algorithms.image;
 
 import java.awt.Container;
@@ -134,6 +135,9 @@ public class ImagemUtil {
 //	}
 =======
 package image;
+=======
+package algorithms.image;
+>>>>>>> e7cfaf3 Changes in place
 
 import java.awt.Container;
 import java.awt.Graphics2D;

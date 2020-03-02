@@ -1,4 +1,5 @@
 package algorithms.functions;
+<<<<<<< Upstream, based on origin/master
 
 
 
@@ -66,6 +67,8 @@ public static double consineTextSimilarity(String[] left, String[] right) {
  * For algorithms.text matching, the attribute vectors A and B are usually the term
 =======
 package functions;
+=======
+>>>>>>> e7cfaf3 Changes in place
 
 
 

@@ -1,4 +1,4 @@
-package lexical;
+package algorithms.strings;
 
 public class Palindrome {
 

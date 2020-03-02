@@ -1,4 +1,4 @@
-package matriz;
+package algorithms.matriz;
 
 import javax.swing.JOptionPane;
 

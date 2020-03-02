@@ -1,8 +1,12 @@
 <<<<<<< Upstream, based on origin/master
+<<<<<<< Upstream, based on origin/master
 package algorithms.converter;
 =======
 package converter;
 >>>>>>> 74ea2df Changes
+=======
+package algorithms.converter;
+>>>>>>> e7cfaf3 Changes in place
 
 import java.text.DateFormat;
 import java.text.ParseException;

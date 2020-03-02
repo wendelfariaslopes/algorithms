@@ -1,4 +1,4 @@
-package lexical;
+package algorithms.strings;
 
 import java.util.Collections;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package morse;
+package algorithms.math;
 
 public class MorseCode {
 	

@@ -2,6 +2,7 @@
  * 
  */
 <<<<<<< Upstream, based on origin/master
+<<<<<<< Upstream, based on origin/master
 package algorithms.functions;
 
 import java.util.HashMap;
@@ -14,6 +15,9 @@ import algorithms.text.Lexical;
 import algorithms.text.SortMap;
 =======
 package functions;
+=======
+package algorithms.functions;
+>>>>>>> e7cfaf3 Changes in place
 
 import java.util.Collection;
 import java.util.Collections;
