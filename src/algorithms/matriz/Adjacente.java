@@ -1,8 +1,12 @@
 <<<<<<< Upstream, based on origin/master
+<<<<<<< Upstream, based on origin/master
 package algorithms.matriz;
 =======
 package matriz;
 >>>>>>> 74ea2df Changes
+=======
+package algorithms.matriz;
+>>>>>>> 98f0a9b Last changes places
 
 /**
  * 
