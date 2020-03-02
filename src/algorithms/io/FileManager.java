@@ -49,12 +49,8 @@ public class FileManager {
 
 		if(listOfFiles!=null) {
 			for (int i = 0; i < listOfFiles.length; i++) {
-
 				if (listOfFiles[i].isFile()) {
-
-					// System.out.println(listOfFiles[i].getName());
 					list.add(listOfFiles[i].getName());
-
 				}
 			}
 		}

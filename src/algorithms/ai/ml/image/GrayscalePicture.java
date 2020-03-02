@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -25,40 +26,6 @@ import javax.swing.KeyStroke;
 import algorithms.io.StdIn;
 import algorithms.io.StdOut;
 
-
-/**
-*  This class provides methods for manipulating individual pixels of
-*  a grayscale image.
-*  The original image can be read from a {@code PNG}, {@code GIF},
-*  or {@code JPEG} file or the user can create a blank image of a given dimension.
-*  This class includes methods for displaying the image in a window on
-*  the screen or saving it to a file.
-*  <p>
-*  Pixel (<em>col</em>, <em>row</em>) is column <em>col</em> and row <em>row</em>.
-*  By default, the origin (0, 0) is the pixel in the top-left corner,
-*  which is a common convention in image processing.
-*  The method {@link #setOriginLowerLeft()} change the origin to the lower left.
-*  <p>
-*  The {@code get()} and {@code set()} methods use {@link Color} objects to get
-*  or set the color of the specified pixel. The {@link Color} objects are converted
-*  to grayscale if they have different values for the R, G, and B channels.
-*  The {@code getGrayscale()} and {@code setGrayscale()} methods use an
-*  8-bit {@code int} to encode the grayscale value, thereby avoiding the need to
-*  create temporary {@code Color} objects.
-*  <p>
-*  A <em>W</em>-by-<em>H</em> picture uses ~ 4 <em>W H</em> bytes of memory,
-*  since the color of each pixel is encoded as a 32-bit <code>int</code>
-*  (even though, in principle, only ~ <em>W H</em> bytes are needed).
-*  <p>
-*  For additional documentation, see
-*  <a href="https://introcs.cs.princeton.edu/31datatype">Section 3.1</a> of
-*  <i>Computer Science: An Interdisciplinary Approach</i>
-*  by Robert Sedgewick and Kevin Wayne.
-*  See {@link Picture} for a version that supports 32-bit RGB color images.
-*
-*  @author Robert Sedgewick
-*  @author Kevin Wayne
-*/
 public final class GrayscalePicture implements ActionListener {
    private BufferedImage image;               // the rasterized image
    private JFrame frame;                      // on-screen view
@@ -337,7 +304,8 @@ public final class GrayscalePicture implements ActionListener {
     * @return {@code true} if this picture is the same dimension as {@code other}
     *         and if all pixels have the same color; {@code false} otherwise
     */
-   public boolean equals(Object other) {
+   @Override
+public boolean equals(Object other) {
        if (other == this) return true;
        if (other == null) return false;
        if (other.getClass() != this.getClass()) return false;
@@ -357,7 +325,8 @@ public final class GrayscalePicture implements ActionListener {
     *
     * @return a string representation of this picture
     */
-   public String toString() {
+   @Override
+public String toString() {
        StringBuilder sb = new StringBuilder();
        sb.append(width +"-by-" + height + " grayscale picture (grayscale values given in hex)\n");
        for (int row = 0; row < height; row++) {
@@ -378,7 +347,8 @@ public final class GrayscalePicture implements ActionListener {
     * @return does not return a value
     * @throws UnsupportedOperationException if called
     */
-   public int hashCode() {
+   @Override
+public int hashCode() {
        throw new UnsupportedOperationException("hashCode() is not supported because pictures are mutable");
    }
 

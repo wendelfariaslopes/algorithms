@@ -2,6 +2,7 @@ package algorithms.ai.ml.image;
 
 import java.awt.Color;
 
+
 public class EdgeDetector {
 
     // truncate color component to be between 0 and 255
@@ -25,7 +26,7 @@ public class EdgeDetector {
             { -1, -2, -1 }
         };
 
-        Picture picture0 = new Picture("../algorithms/src/algorithms/ai/ml/image/enrico.jpeg");
+        Picture picture0 = new Picture(args[0]);
         int width    = picture0.width();
         int height   = picture0.height();
         Picture picture1 = new Picture(width, height);
