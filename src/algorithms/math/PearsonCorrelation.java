@@ -71,8 +71,8 @@ public class PearsonCorrelation {
 	
 	public static void main (String [] args){
 		
-		double[] x = {1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2};//se considerarmos os valores menores faremos uma reducao aos casos conhecidos
-		double[] y = { 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61};// se consideramos os maiores faremos uma inducao de valores para os menores, baseado na media de crescimento ou decrescimento
+		double[] x = {1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.1, 1.9};//se considerarmos os valores menores faremos uma reducao aos casos conhecidos
+		double[] y = { 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 60, 58};// se consideramos os maiores faremos uma inducao de valores para os menores, baseado na media de crescimento ou decrescimento
 		// 1, 2, 3, ... a inducao nos leva ao proximo numero igual a 4
 		// entretanto se outro vetor apresenta covariacao
 		// o que deveremos acrecentar?
