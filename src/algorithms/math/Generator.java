@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.math;
+=======
+package math.random;
+>>>>>>> 74ea2df Changes
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

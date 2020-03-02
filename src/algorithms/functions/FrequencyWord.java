@@ -1,6 +1,7 @@
 /**
  * 
  */
+<<<<<<< Upstream, based on origin/master
 package algorithms.functions;
 
 import java.util.HashMap;
@@ -11,6 +12,23 @@ import java.util.regex.Pattern;
 
 import algorithms.text.Lexical;
 import algorithms.text.SortMap;
+=======
+package functions;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import dict.Lexical;
+import dict.SortMap;
+>>>>>>> 74ea2df Changes
 
 
 public class FrequencyWord {

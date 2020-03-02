@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.functions;
+=======
+package functions;
+>>>>>>> 74ea2df Changes
 
 public class LevenshteinDistance {
 	

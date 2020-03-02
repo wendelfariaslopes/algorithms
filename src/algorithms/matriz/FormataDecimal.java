@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.matriz;
+=======
+package matriz;
+>>>>>>> 74ea2df Changes
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -1,7 +1,11 @@
 /**
  * 
  */
+<<<<<<< Upstream, based on origin/master
 package algorithms.image;
+=======
+package image;
+>>>>>>> 74ea2df Changes
 
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

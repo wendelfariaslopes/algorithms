@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.socket;
 
 import java.io.DataInputStream;
@@ -10,6 +11,20 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 
 public class ClienteSocket {
+=======
+package ftp;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.net.Socket;
+
+import javax.swing.JOptionPane;
+
+public class Cliente {
+>>>>>>> 74ea2df Changes
 
 	public static void main(String[] args) {
 		int port = 5298;

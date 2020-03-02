@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.converter;
+=======
+package converter;
+>>>>>>> 74ea2df Changes
 
 import java.text.DateFormat;
 import java.text.ParseException;

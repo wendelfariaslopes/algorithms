@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.math;
+=======
+package Optimization;
+>>>>>>> 74ea2df Changes
 
 import algorithms.io.StdIn;
 import algorithms.io.StdOut;

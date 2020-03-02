@@ -1,7 +1,11 @@
 /**
  * 
  */
+<<<<<<< Upstream, based on origin/master
 package algorithms.image;
+=======
+package image;
+>>>>>>> 74ea2df Changes
 
 import java.io.FileInputStream;
 import java.io.IOException;

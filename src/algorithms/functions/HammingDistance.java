@@ -1,4 +1,8 @@
+<<<<<<< Upstream, based on origin/master
 package algorithms.functions;
+=======
+package functions;
+>>>>>>> 74ea2df Changes
 
 /*
  * This algorithm calculates the distance between two strings, however they have to be of equal length.
