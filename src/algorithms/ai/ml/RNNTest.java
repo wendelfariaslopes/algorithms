@@ -21,8 +21,8 @@ public class RNNTest {
 		
 		Random r = new Random();
 		
-		int samples = 5;
-		int numBytes = 64;
+		int samples = 1;
+		int numBytes = 20000;
 		
 		
 		double[][] X = new double[samples][numBytes];
@@ -42,8 +42,6 @@ public class RNNTest {
 					
 				}
 				Y[m][0] = 1; // igual ao Cat (valor 1)
-				
-				
 				
 			}else {
 				// dados in bytes
@@ -66,6 +64,12 @@ public class RNNTest {
 		
 		learnFunction(X, Y);
 		
+		
+		System.out.println();
+		System.out.println("--------------------------------------------");
+		System.out.println("--------------------------------------------");
+		System.out.println("FINISHED PROGRAM");
+		System.out.println("--------------------------------------------");
 		
 		//learnFunction(X, Y);
 		

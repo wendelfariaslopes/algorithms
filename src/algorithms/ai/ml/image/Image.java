@@ -19,7 +19,7 @@ public class Image {
 	
 	private static final String DIR_TRAINING = "/Users/wendellopes/Downloads/cats/training";
 
-	public static final int SIZE_100_PIXEL = 100;
+	public static final int SIZE_100_PIXEL = 50;
 	
 	//Vectorization
 
