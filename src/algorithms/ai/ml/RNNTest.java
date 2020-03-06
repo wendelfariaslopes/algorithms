@@ -2,6 +2,7 @@ package algorithms.ai.ml;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -14,9 +15,12 @@ public class RNNTest {
 
 	private static Matrix w1;
 	private static Matrix w2;
+
+	private double[][] W1;
+	private double[][] W2;
 	
-	private  double[][]W1;
-	private  double[][]W2;
+	public static List<Integer> listPositiveCases;
+	
 
 	/*
 	 * -Xmx9000m -Xms6000m
@@ -24,16 +28,17 @@ public class RNNTest {
 
 	public static void main(String[] args) {
 
-		int samples = 3;
+		int samples = 20;
 		int numBytes = 100;
-
-		generatorXY(samples, numBytes);
+		
+		
+		Map<Integer,String> modelMap = generatorXY(samples, numBytes);
 
 		System.out.println();
 		System.out.println("---------- Start Training -------------");
 		System.out.println("");
 
-		Map<String,Double[][]> weightMap = learnFunction(X, Y);
+		Map<String, Double[][]> weightMap = learnFunction(X, Y);
 
 		System.out.println();
 		System.out.println("---------- End Training -------------");
@@ -42,28 +47,23 @@ public class RNNTest {
 		System.out.println();
 		System.out.println("---------- Start Tests -------------");
 		System.out.println("");
-
-		//testObject(castDoubleToPrimitiveDouble(weightMap.get("W1")), castDoubleToPrimitiveDouble(weightMap.get("W2")), X);
 		
-		testLearnFunction(X, Y, castDoubleToPrimitiveDouble(weightMap.get("W1")), castDoubleToPrimitiveDouble(weightMap.get("W2"))
-				,castDoubleToPrimitiveDouble(weightMap.get("B1")), castDoubleToPrimitiveDouble(weightMap.get("B2")));
+		double[][] w1 = castDoubleToPrimitiveDouble(weightMap.get("W1"));
+		double[][] w2 = castDoubleToPrimitiveDouble(weightMap.get("W2"));
+		double[][] b1 = castDoubleToPrimitiveDouble(weightMap.get("B1"));
+		double[][] b2 = castDoubleToPrimitiveDouble(weightMap.get("B2"));
 		
-	
-//		int s = 5; // um gato
-//	    System.out.println("Exemplar eh "+ Y[s][0]+ " um Cat!");
+		modelMap.forEach((k,v)->{
 			
-//			for (int train = 0; train < samples; train++) {
-//
-//				if (train % 2 == 0) {
-//					System.out.print("Train for CAT ");
-//					testObject(w1.getArray()[train], w2.getArray()[0][train], X[s]);
-//	
-//				} else {
-//					System.out.print("Train NO cat ");
-//					testObject(w1.getArray()[train], w2.getArray()[0][train], X[s]);
-//	
-//				}
-//			}
+			if(v.equals("Positive")) {
+				
+			}
+		
+		});
+		
+
+		testLearnFunction(X, w1,w2,b1,b2);
+
 
 		System.out.println();
 		System.out.println("---------- End Tests -------------");
@@ -75,9 +75,9 @@ public class RNNTest {
 
 	}
 
-	public static Map<String,Double[][]> learnFunction(double[][] X, double[][] Y) {
-		
-		Map<String,Double[][]> weightMap = new HashMap<>();
+	public static Map<String, Double[][]> learnFunction(double[][] X, double[][] Y) {
+
+		Map<String, Double[][]> weightMap = new HashMap<>();
 
 		int cycles = 4000;
 
@@ -92,7 +92,6 @@ public class RNNTest {
 
 		X = np.T(X);
 		Y = np.T(Y);
-	
 
 		for (int i = 0; i < cycles; i++) {
 
@@ -105,8 +104,8 @@ public class RNNTest {
 			double[][] Z2 = np.add(np.dot(W2, A1), b2);
 			double[][] A2 = np.sigmoid(Z2);
 			// double[][] A2 = np.relu(Z2);
-			
-			if(i==cycles-1) {
+
+			if (i == cycles - 1) {//store learned 
 				weightMap.put("W1", castPrimitiveDoubleToDouble(W1));
 				weightMap.put("W2", castPrimitiveDoubleToDouble(W2));
 				weightMap.put("B1", castPrimitiveDoubleToDouble(b1));
@@ -142,171 +141,86 @@ public class RNNTest {
 			}
 
 		}
-		
+
 		return weightMap;
 	}
-	
-	public static void testLearnFunction(double[][] X, double[][] Y, double[][]W1, double[][]W2, double[][] b1, double[][] b2) {
-		int m = Y.length;
-		int nodes = X.length; // hidden layer size
-		
-		int cycles = 2;
+
+	public static void testLearnFunction(double[][] X, double[][] W1, double[][] W2, double[][] b1, double[][] b2) {
 		X = np.T(X);
-		Y = np.T(Y);
-
-		for (int i = 0; i < cycles; i++) {
-			
-			// Implement Forward Propagation to calculate A2 (probabilities)
-						// LAYER 1
-						double[][] Z1 = np.add(np.dot(W1, X), b1);
-						double[][] A1 = np.sigmoid(Z1);
-						// double[][] A1 = np.relu(Z1);
-						// LAYER 2
-						double[][] Z2 = np.add(np.dot(W2, A1), b2);
-						double[][] A2 = np.sigmoid(Z2);
-						// double[][] A2 = np.relu(Z2);
-						
-			
-					
-
-			np.print("A2 = " + Arrays.deepToString(A2));
-			
-		}
+		double[][] Z1 = np.add(np.dot(W1, X), b1);
+		double[][] A1 = np.sigmoid(Z1);
+		double[][] Z2 = np.add(np.dot(W2, A1), b2);
+		double[][] A2 = np.sigmoid(Z2);
+		np.print("A2 = " + Arrays.deepToString(A2));
 	}
 
+	public static void testLearnFunction(double[] X, double[][] W1, double[][] W2, double[][] b1, double[][] b2) {
+		// Criamos aqui uma matrix que para passar por todos os treinos realisados
+		double[][] o = new double[W1.length][X.length];
+		// Preenche a matrix com o mesmo objeto para passar por cada treino
+		for (int i = 0; i < W1.length; i++) {
+			o[i] = X;
+		}
+		o = np.T(o);
+		double[][] Z1 = np.add(np.dot(W1, o), b1);
+		double[][] A1 = np.sigmoid(Z1);
+		double[][] Z2 = np.add(np.dot(W2, A1), b2);
+		double[][] A2 = np.sigmoid(Z2);
+		np.print("A2 = " + Arrays.deepToString(A2));
+	}
 
 	// criando dados simulados para testes
-	private static void generatorXY(int samples, int numBytes) {
+	private static Map<Integer,String> generatorXY(int samples, int numBytes) {
+		
+		Map<Integer,String> modelMap = new HashMap<>();
+		
 		Random r = new Random();
 
 		X = new double[samples][numBytes];
 		Y = new double[samples][1];
 
 		for (int m = 0; m < samples; m++) {
-			if (m % 2 == 0) { // todos as posicoes no arrays que sao gatos sao pares ou divididos por 7 ...
+			
+			if (m % 2 == 0 || m % 5 == 0 || m % 7 == 0) { // todos as posicoes no arrays que sao gatos sao pares ou divididos por 7 ...
 								// acao arbitraria.
 				// Gerando dados in bytes aleatorios
 				for (int n = 0; n < numBytes; n++) {
-					if (n >= numBytes/2) {
+					if (n >= numBytes / 2) {
 						X[m][n] = 0.99;
 					} else {
 						X[m][n] = 0.000001;
 					}
 				}
 				Y[m][0] = 1; // igual ao Cat (valor 1)
+				modelMap.put(m, "Positive");
+				listPositiveCases.add(m);
 			} else {
 				// Gerando dados in bytes aleatorios
 				for (int n = 0; n < numBytes; n++) {
 					X[m][n] = r.nextDouble() + 0.0001;
 				}
 				Y[m][0] = 0; // diff Cat (valor 0)
+				modelMap.put(m, "Negative");
 			}
 		}
-	}
-
-	public static void testObject(double[][] W1, double[][] W2, double[] object) {
-
-		// Criamos aqui uma matrix que para passar por todos os treinos realisados
-		double[][] X = new double[W1.length][object.length];
-		// Preenche a matrix com o mesmo objeto para passar por cada treino
-		for (int i = 0; i < W1.length; i++) {
-			X[i] = object;
-		}
-
-		X = np.T(X);
-
-		// Implement Forward Propagation to calculate A2 (probabilities)
-		// LAYER 1
-		double[][] Z1 = np.dot(W1, X);
-		double[][] A1 = np.sigmoid(Z1);
-
-//		Matrix m = new Matrix(Z1);
-//		m.print(1, 3);
-
-		// LAYER 2
-		double[][] Z2 = np.dot(W2, Z1);
-		double[][] A2 = np.sigmoid(Z2);
-
-		np.print("Predictions = " + Arrays.deepToString(A2));
-
-	}
-	
-	public static void testObject(double[][] W1, double[][] W2, double[][] object) {
-
-		// Implement Forward Propagation to calculate A2 (probabilities)
-		// LAYER 1
-		double[][] Z1 = np.dot(W1, np.T(object));
-		double[][] A1 = np.sigmoid(Z1);
-
-		// LAYER 2
-		double[][] Z2 = np.dot(W2, Z1);
-		double[][] A2 = np.sigmoid(Z2);
-
-		np.print("Predictions = " + Arrays.deepToString(A2));
-
-	}
-
-
-	public static void testObject(double[] W1, double W2, double[] object) {
-
-		Matrix o = new Matrix(object, 1);
-		Matrix oT = o.transpose();
-
-		Matrix w = new Matrix(W1, 1);
-
-		Matrix s = w.times(oT);
 		
-		double[][] w1 = np.sigmoid(s.getArray()); 
-		
-		Matrix ww1= new Matrix(w1);
-
-		ww1 = ww1.times(W2);
-
-		double[][] v = np.sigmoid(ww1.getArray());
-
-		Matrix vv = new Matrix(v);
-
-		vv.print(1, 3);
-
-		// oT.print(1, 3);
-
+		return modelMap;
 	}
-	
-	public static void testObject(double[] W1, double W2, double[][] object) {
 
-
-		
-		double[][] w1 = np.sigmoid(np.T(object)); 
-		
-		Matrix ww1= new Matrix(w1);
-
-		ww1 = ww1.times(W2);
-
-		double[][] v = np.sigmoid(ww1.getArray());
-
-		Matrix vv = new Matrix(v);
-
-		vv.print(1, 3);
-
-		// oT.print(1, 3);
-
-	}
-	
-	
-	public static Double[][] castPrimitiveDoubleToDouble(double [][] matrix){
+	public static Double[][] castPrimitiveDoubleToDouble(double[][] matrix) {
 		Double[][] matrixDouble = new Double[matrix.length][matrix[0].length];
-		for(int i=0; i < matrix.length;i++) {
-			for(int j=0; j < matrix[0].length;j++) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[0].length; j++) {
 				matrixDouble[i][j] = matrix[i][j];
 			}
 		}
 		return matrixDouble;
 	}
-	
-	public static double[][] castDoubleToPrimitiveDouble(Double [][] matrix){
+
+	public static double[][] castDoubleToPrimitiveDouble(Double[][] matrix) {
 		double[][] matrixDouble = new double[matrix.length][matrix[0].length];
-		for(int i=0; i < matrix.length;i++) {
-			for(int j=0; j < matrix[0].length;j++) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[0].length; j++) {
 				matrixDouble[i][j] = matrix[i][j];
 			}
 		}
