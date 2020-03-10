@@ -17,29 +17,10 @@ public class Metrics {
 		// and we use a test to detect if this give us an apple as a answer
 		// So, True or False are about a priori Theory or Conception or Classification already got.
 		// and Positive or Negative are about a posteriori Tests made about the theory.
-		
-//		int T = 0;
-//		int F = 0;
-//		int P = 0;
-//		int N = 0;
-//		
-//		for(int e=0; e < expected.length; e++) {
-//			if(expected[e]==1) {
-//				++T;
-//			}else {
-//				++F;
-//			}
-//		}
-//		
-//		for(int a=0; a < actual.length; a++) {
-//			if(actual[a]==1) {
-//				++P;
-//			}else {
-//				++N;
-//			}
-//		}
-		
+	
+	
 		int samples = actual.length; // total de samples
+		
 		double TP = 100; //True Positive (TP) : Observation is positive, and is predicted to be positive.
 		//These are cases in which we predicted yes (they have the disease), and they do have the disease.
 		
@@ -106,4 +87,8 @@ public class Metrics {
 		
 	}
 
+	
+	private int[] union() {
+		
+	}
 }

@@ -21,9 +21,9 @@ public class JaccardCoefficient {
 	public double similarity(String[] x, String[] y) {
 	    double sim=0.0d;
 	    if ( (x!=null && y!=null) && (x.length>0 || y.length>0)) {
-	                    sim = similarity(Arrays.asList(x), Arrays.asList(y)); 
+	        sim = similarity(Arrays.asList(x), Arrays.asList(y)); 
 	    } else {
-	            throw new IllegalArgumentException("The arguments x and y must be not NULL and either x or y must be non-empty.");
+	        throw new IllegalArgumentException("The arguments x and y must be not NULL and either x or y must be non-empty.");
 	    }
 	    return sim;
 	}
