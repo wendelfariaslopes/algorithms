@@ -1,11 +1,22 @@
 package algorithms.ai.ml.image;
 
+<<<<<<< Upstream, based on origin/master
 import cogito4j.analysis.Metrics;
+=======
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Arrays;
+
+import cogito4j.Metrics;
+>>>>>>> 7f38e6f Imagem vectorization fails
 
 public class SequencialFinder {
 
+	public static final String DIR = "../algorithms/src/algorithms/ai/ml/image";
+
 	public static void main(String[] args) {
 
+<<<<<<< Upstream, based on origin/master
 		String name = "cat_1";
 		String nameFile = name +"-reduce-by-90";
 		java.awt.image.BufferedImage image = Image.load(Image.DIR + nameFile+ ".jpg");
@@ -27,7 +38,13 @@ public class SequencialFinder {
 		for(int i=0; i < (image.getWidth() - width+1); i++) {
 			for(int j=0; j < image.getHeight() - height+1; j++) {
 				java.awt.image.BufferedImage fractionImageToAnalise = image.getSubimage(i, j, width, height);
+=======
+	
+		String origThreshold = "enrico-threshold.jpg";
+		String cropThreshold = "enrico-enquadrado-red.jpg";
+>>>>>>> 7f38e6f Imagem vectorization fails
 
+<<<<<<< Upstream, based on origin/master
 				double[] fractionToAnalise = Image.imageToVector(fractionImageToAnalise);
 				double similar = Metrics.pearson(fractionToAnalise, subVectorToFind);
 				
@@ -43,10 +60,107 @@ public class SequencialFinder {
 				
 				System.out.println("Finder in line = "+i+" colunm = "+j);
 			}
-		}
+=======
 		
+		BufferedImage img = ChannelSplitter.readImage(DIR +File.separator+ origThreshold);
+		BufferedImage imgCrop = ChannelSplitter.readImage(DIR +File.separator+ cropThreshold);
+		
+		int[]v = ChannelSplitter.vectorization(img);
+		System.out.println(v.length);
+		
+		
+		double[]X = copyFromIntArray(ChannelSplitter.vectorization(img));
+		
+		double[] crop = copyFromIntArray(ChannelSplitter.vectorization(imgCrop));
+		
+		
+		double[] x = new double[1000];
+		for(int c =0; c < 1000; c++) {
+			x[c] = crop[c];
+>>>>>>> 7f38e6f Imagem vectorization fails
+		}
+<<<<<<< Upstream, based on origin/master
+		
+		
+=======
+	
+>>>>>>> 7f38e6f Imagem vectorization fails
+
+<<<<<<< Upstream, based on origin/master
+=======
+		System.out.println(Arrays.toString(x));
+//
+
+//		double[] X = new double[samples];
+//		double[] small = { 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7,
+//				8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8,
+//				1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7,
+//				8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8,
+//				1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7,
+//				8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8};
+//		int inceptionIn = 70000;
+//
+//		for (int i = 0; i < samples; i++) {
+//			if (i == inceptionIn) {
+//				for (int j = 0; j < small.length; j++) {
+//					X[i] = small[j];
+//					++i;
+//				}
+//			}
+//		}
+//
+//		System.out.println(indexOf(X, small));
+//
+//		double[] x = { 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7,
+//				8, 1, 2, 3, 4, 4, 6, 7, 8, 9, 9, 9, 9, 7, 8, 7, 8, 1, 2, 3};// se considerarmos os valores menores faremos uma reducao aos casos conhecidos
+
 		
 
+
+		System.out.println(indexOf(X, x));
+		double percentSimilarity = 0.90;
+
+		//System.out.println(getSimilarityOf(X, x, percentSimilarity));
+
+	}
+	
+	public static double[] copyFromIntArray(int[] source) {
+	    double[] dest = new double[source.length];
+	    for(int i=0; i<source.length; i++) {
+	        dest[i] = source[i];
+	    }
+	    return dest;
+	}
+
+	public static int indexOf(byte[] big, byte[] small) {
+		for (int i = 0; i < big.length - small.length + 1; ++i) {
+			boolean found = true;
+			for (int j = 0; j < small.length; ++j) {
+				if (big[i + j] != small[j]) {
+					found = false;
+					break;
+				}
+			}
+			if (found)
+				return i;
+		}
+		return -1;
+	}
+
+	public static int indexOf(int[] big, int[] small) {
+		for (int i = 0; i < big.length - small.length + 1; ++i) {
+			boolean found = true;
+			for (int j = 0; j < small.length; ++j) {
+				if (big[i + j] != small[j]) {
+					found = false;
+					break;
+				}
+			}
+			if (found)
+				return i;
+		}
+		return -1;
+>>>>>>> 7f38e6f Imagem vectorization fails
 	}
 
 	public static int indexOf(double[] big, double[] small) {
