@@ -1,10 +1,12 @@
 package cogito4j;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Metrics {
 
 	public static void main(String[] args) {
+		
 		double [] actual =   {1, 1, 0, 1, 0, 0, 1, 0, 0, 0}; // Tests made
 		double [] expected = {1, 0, 0, 1, 0, 0, 1, 1, 1, 0}; // name can be expected or predicted (Theory) 
 		
@@ -86,9 +88,65 @@ public class Metrics {
 		System.out.println("Prevalence = " + prevalence);
 		
 	}
+	
+	public static double pearson(double[] x, double[] y) {
+		
+		DecimalFormat df = new DecimalFormat("0.000");
+
+		double maX = 0;
+		double maY = 0;
+		double r = 0;
+		int length = 1;
+
+		if (x.length <= y.length) {
+			length = x.length;
+		} else {
+			length = y.length;
+		}
+
+		for (int i = 0; i < length; i++) {
+			maX += x[i];
+			maY += y[i];
+		}
+
+		maX = maX / length;
+		maY = maY / length;
+		
+		double [] desvioX = new double[length];
+		double [] desvioY = new double[length];
+		double dvXdvY = 0;
+		
+		double [] varX = new double [length];
+		double [] varY = new double [length];
+		double sdX = 0;
+		double sdY = 0;
+		
+		//System.out.println("Diff X  , Diff Y");
+		for (int i = 0; i < length; i++) {
+			
+			desvioX[i] = x[i] - maX;
+			desvioY[i] = y[i] - maY;
+			varX[i] = Math.pow(desvioX[i], 2);
+			varY[i] = Math.pow(desvioY[i], 2);
+			sdX +=varX[i];
+			sdY +=varY[i];
+			
+			dvXdvY += desvioX[i] * desvioY[i];
+			//System.out.println(df.format(desvioX[i])+"  ,  "+df.format(desvioY[i]));
+		}
+		//double c = dvXdvY/length;
+		double covariancia = dvXdvY/(length-1);
+		sdX = Math.sqrt(sdX/(length-1));
+		sdY = Math.sqrt(sdY/(length-1));
+		
+		double pearson = covariancia/(sdX*sdY);
+		
+		//System.out.println("Pearson Correlation = "+df.format(pearson));
+		
+		//System.out.println("Covariance = "+df.format(c));
+		
+		return pearson;
+	}
 
 	
-	private int[] union() {
-		
-	}
 }
