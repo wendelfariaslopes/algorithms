@@ -10,7 +10,7 @@ public class DataFactory {
 	private static double[][] Y;
 
 	// criando dados simulados para testes
-	public static Map<Integer,String> generatorXY(int samples, int numBytes) {
+	public static Map<Integer,String> createArtificialTrainingDataSet(int samples, int numBytes) {
 			
 			Map<Integer,String> modelMap = new HashMap<>();
 			

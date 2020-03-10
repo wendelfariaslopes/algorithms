@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import functions.FrequencyWord;
+import algorithms.functions.FrequencyWord;
 
 /**
  * @author Wendel F. Lopes

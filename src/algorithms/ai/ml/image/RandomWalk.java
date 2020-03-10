@@ -43,7 +43,7 @@ public class RandomWalk {
             StdDraw.setPenColor(StdDraw.BLUE);
             StdDraw.filledSquare(x, y, 0.45);
             StdDraw.show();
-            StdDraw.pause(40);
+            Timer.pause(40);
         }
         StdOut.println("Total steps = " + steps);
     }

@@ -1,7 +1,5 @@
 package algorithms.math;
 
-import java.text.DecimalFormat;
-import java.util.Arrays;
 
 public class Statistic {
 
@@ -262,11 +260,11 @@ public class Statistic {
 
 		double cv = sd / average;
 		if (cv <= 0.15) { // For menor ou igual a 15% → baixa dispersão: dados homogêneos
-			System.out.println("baixa dispersao");
+			System.out.println("Low dispersion");
 		} else if (cv <= 0.30) { // For entre 15 e 30% → média dispersão
-			System.out.println("média dispersão");
+			System.out.println("medium dispersion");
 		} else { // For maior que 30% → alta dispersão: dados heterogêneos
-			System.out.println("alta dispersão");
+			System.out.println("high dispersion");
 		}
 
 		return cv;
@@ -276,7 +274,6 @@ public class Statistic {
 	 * the quality or state of being correct or precise.
 	 */
 	public double calculateAccuracy(double sd, double average) {
-
 		return sd / average;
 	}
 	

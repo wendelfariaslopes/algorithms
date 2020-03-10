@@ -11,10 +11,6 @@ import java.util.HashMap;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-
-
-import math.random.Generator;
-
 public class Classifier {
 
 	public static void main(String[] args) {

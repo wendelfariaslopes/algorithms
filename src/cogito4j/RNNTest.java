@@ -22,26 +22,41 @@ public class RNNTest {
 	 */
 
 	public static void main(String[] args) {
+		
+		
+		System.out.println("\n-------- Start Training Set -------------\n");
+
 
 		int samples = 20;
 		int numBytes = 100;
 		
 		
-		Map<Integer,String> modelMap = DataFactory.generatorXY(samples, numBytes);
+		Map<Integer,String> modelMap = DataFactory.createArtificialTrainingDataSet(samples, numBytes);
+		
+		X = DataFactory.getX();
+		Y = DataFactory.getY();
+		
+		System.out.println();
+		System.out.println("---------- End Training Set -------------");
+		System.out.println("");
+		
 
 		System.out.println();
-		System.out.println("---------- Start Training -------------");
+		System.out.println("---------- Start Training Set -------------");
 		System.out.println("");
 
-		Map<String, Double[][]> weightMap = learnFunction(X, Y);
+		Map<String, Double[][]> weightMap = learnAlgorithm(X, Y);
 
 		System.out.println();
-		System.out.println("---------- End Training -------------");
+		System.out.println("---------- End Training Set -------------");
 		System.out.println("");
 
 		System.out.println();
 		System.out.println("---------- Start Tests -------------");
 		System.out.println("");
+		
+		
+		//Predictive Model
 		
 		double[][] w1 = castDoubleToPrimitiveDouble(weightMap.get("W1"));
 		double[][] w2 = castDoubleToPrimitiveDouble(weightMap.get("W2"));
@@ -70,7 +85,7 @@ public class RNNTest {
 
 	}
 
-	public static Map<String, Double[][]> learnFunction(double[][] X, double[][] Y) {
+	public static Map<String, Double[][]> learnAlgorithm(double[][] X, double[][] Y) {
 
 		Map<String, Double[][]> weightMap = new HashMap<>();
 
