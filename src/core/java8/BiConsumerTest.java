@@ -1,4 +1,4 @@
-package programs.io;
+package core.java8;
 
 import java.util.Properties;
 import java.util.function.BiConsumer;

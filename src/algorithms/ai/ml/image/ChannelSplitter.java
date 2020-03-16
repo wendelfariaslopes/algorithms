@@ -1,9 +1,6 @@
 package algorithms.ai.ml.image;
 
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.awt.image.PixelGrabber;
 import java.io.File;
 import java.io.IOException;
 
@@ -195,7 +192,7 @@ public class ChannelSplitter {
 		int h = img.getHeight();
 		int layerSize = w * h;
 
-		int[] vector = new int[4 * layerSize];
+		int[] vector = new int[3 * layerSize];
 		int n = 0;
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
