@@ -78,7 +78,7 @@ import javax.swing.KeyStroke;
  *  allows you to create drawings consisting of points, lines, squares, 
  *  circles, and other geometric shapes in a window on your computer and
  *  to save the drawings to a file. Standard drawing also includes
- *  facilities for text, color, pictures, and animation, along with
+ *  facilities for algorithms.text, color, pictures, and animation, along with
  *  user interaction via the keyboard and mouse.
  *  <p>
  *  <b>Getting started.</b>
@@ -256,18 +256,18 @@ import javax.swing.KeyStroke;
  *  and circles will become ellipsoidal.
  *  <p>
  *  <b>Text.</b>
- *  You can use the following methods to annotate your drawings with text:
+ *  You can use the following methods to annotate your drawings with algorithms.text:
  *  <ul>
- *  <li> {@link #text(double x, double y, String text)}
- *  <li> {@link #text(double x, double y, String text, double degrees)}
- *  <li> {@link #textLeft(double x, double y, String text)}
- *  <li> {@link #textRight(double x, double y, String text)}
+ *  <li> {@link #text(double x, double y, String algorithms.text)}
+ *  <li> {@link #text(double x, double y, String algorithms.text, double degrees)}
+ *  <li> {@link #textLeft(double x, double y, String algorithms.text)}
+ *  <li> {@link #textRight(double x, double y, String algorithms.text)}
  *  </ul>
  *  <p>
- *  The first two methods write the specified text in the current font,
+ *  The first two methods write the specified algorithms.text in the current font,
  *  centered at (<em>x</em>, <em>y</em>).
- *  The second method allows you to rotate the text.
- *  The last two methods either left- or right-align the text at (<em>x</em>, <em>y</em>).
+ *  The second method allows you to rotate the algorithms.text.
+ *  The last two methods either left- or right-align the algorithms.text at (<em>x</em>, <em>y</em>).
  *  <p>
  *  The default font is a Sans Serif font with point size 16.
  *  You can use the following method to change the font:
@@ -281,7 +281,7 @@ import javax.swing.KeyStroke;
  *  <pre>
  *   Font font = new Font("Arial", Font.BOLD, 60);
  *   StdDraw.setFont(font);
- *   StdDraw.text(0.5, 0.5, "Hello, World");
+ *   StdDraw.algorithms.text(0.5, 0.5, "Hello, World");
  *  </pre>
  *  <p>
  *  <b>Images.</b>
@@ -345,7 +345,7 @@ import javax.swing.KeyStroke;
  *  {@link #show()} does your drawing get copied from the offscreen canvas to
  *  the onscreen canvas, where it is displayed in the standard drawing window. You 
  *  can think of double buffering as collecting all of the lines, points, shapes,
- *  and text that you tell it to draw, and then drawing them all
+ *  and algorithms.text that you tell it to draw, and then drawing them all
  *  <em>simultaneously</em>, upon request.
  *  <p>
  *  The most important use of double buffering is to produce computer
@@ -1455,15 +1455,15 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
    /***************************************************************************
-    *  Drawing text.
+    *  Drawing algorithms.text.
     ***************************************************************************/
 
     /**
-     * Write the given text string in the current font, centered at (<em>x</em>, <em>y</em>).
+     * Write the given algorithms.text string in the current font, centered at (<em>x</em>, <em>y</em>).
      *
-     * @param  x the center <em>x</em>-coordinate of the text
-     * @param  y the center <em>y</em>-coordinate of the text
-     * @param  text the text to write
+     * @param  x the center <em>x</em>-coordinate of the algorithms.text
+     * @param  y the center <em>y</em>-coordinate of the algorithms.text
+     * @param  text the algorithms.text to write
      */
     public static void text(double x, double y, String text) {
         if (text == null) throw new IllegalArgumentException();
@@ -1478,11 +1478,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
     /**
-     * Write the given text string in the current font, centered at (<em>x</em>, <em>y</em>) and
+     * Write the given algorithms.text string in the current font, centered at (<em>x</em>, <em>y</em>) and
      * rotated by the specified number of degrees.
-     * @param  x the center <em>x</em>-coordinate of the text
-     * @param  y the center <em>y</em>-coordinate of the text
-     * @param  text the text to write
+     * @param  x the center <em>x</em>-coordinate of the algorithms.text
+     * @param  y the center <em>y</em>-coordinate of the algorithms.text
+     * @param  text the algorithms.text to write
      * @param  degrees is the number of degrees to rotate counterclockwise
      */
     public static void text(double x, double y, String text, double degrees) {
@@ -1496,10 +1496,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
 
     /**
-     * Write the given text string in the current font, left-aligned at (<em>x</em>, <em>y</em>).
-     * @param  x the <em>x</em>-coordinate of the text
-     * @param  y the <em>y</em>-coordinate of the text
-     * @param  text the text
+     * Write the given algorithms.text string in the current font, left-aligned at (<em>x</em>, <em>y</em>).
+     * @param  x the <em>x</em>-coordinate of the algorithms.text
+     * @param  y the <em>y</em>-coordinate of the algorithms.text
+     * @param  text the algorithms.text
      */
     public static void textLeft(double x, double y, String text) {
         if (text == null) throw new IllegalArgumentException();
@@ -1513,11 +1513,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
     /**
-     * Write the given text string in the current font, right-aligned at (<em>x</em>, <em>y</em>).
+     * Write the given algorithms.text string in the current font, right-aligned at (<em>x</em>, <em>y</em>).
      *
-     * @param  x the <em>x</em>-coordinate of the text
-     * @param  y the <em>y</em>-coordinate of the text
-     * @param  text the text to write
+     * @param  x the <em>x</em>-coordinate of the algorithms.text
+     * @param  y the <em>y</em>-coordinate of the algorithms.text
+     * @param  text the algorithms.text to write
      */
     public static void textRight(double x, double y, String text) {
         if (text == null) throw new IllegalArgumentException();
@@ -1891,11 +1891,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         double[] y = { 0.2, 0.3, 0.2, 0.1 };
         StdDraw.filledPolygon(x, y);
 
-        // text
+        // algorithms.text
         StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.text(0.2, 0.5, "black text");
+        StdDraw.text(0.2, 0.5, "black algorithms.text");
         StdDraw.setPenColor(StdDraw.WHITE);
-        StdDraw.text(0.8, 0.8, "white text");
+        StdDraw.text(0.8, 0.8, "white algorithms.text");
     }
 
 }

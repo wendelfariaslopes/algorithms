@@ -4,9 +4,9 @@ import algorithms.io.StdRandom;
 
 /**
  * 
- * Brownian produces a function graph that approximates a simple example of
+ * Brownian produces a function algorithms.graph that approximates a simple example of
  * fractional Brownian motion known as Brownian bridge. You can think of this
- * graph as a random walk that connects the two points (x0, y0) and (x1, y1),
+ * algorithms.graph as a random walk that connects the two points (x0, y0) and (x1, y1),
  * controlled by a few parameters. The implementation is based on the midpoint
  * displacement method, which is a recursive plan for drawing the plot within
  * the x-interval [x0, x1]. The base case (when the size of the interval is
@@ -22,7 +22,7 @@ import algorithms.io.StdRandom;
  * 3) Recur on the subintervals, dividing the variance by a given scaling factor S (smoothness).
  * 
  * The shape of the curve is controlled by two parameters: the volatility
- * (initial value of the variance) controls the distance the graph strays from
+ * (initial value of the variance) controls the distance the algorithms.graph strays from
  * the straight line connecting the points, and the Hurst exponent controls the
  * smoothness of the curve.
  * 

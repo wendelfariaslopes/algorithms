@@ -4,10 +4,7 @@ package algorithms.io.logger;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.net.URI;
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.swing.JApplet;
 import javax.swing.JScrollPane;
@@ -90,18 +87,18 @@ public class LoggerReader extends JApplet {
 //
 //                           split = readLine.split(":");
 //                           String level = split[0];
-//                           String text = split[1];
+//                           String algorithms.text = split[1];
 //                           for (String string : split) {
-//                              text = text.concat(string);
+//                              algorithms.text = algorithms.text.concat(string);
 //                           }
 //
-//                           model.insertRow(0, new Object[] { level, time, packagee, clazz, method, text });
+//                           model.insertRow(0, new Object[] { level, time, packagee, clazz, method, algorithms.text });
 //
 ////                           readLine = br.readLine();
 ////                         while (!readLine.startsWith("2019-") && br.ready()) {
-////                              text = readLine;
+////                              algorithms.text = readLine;
 ////                              readLine = br.readLine();
-////                              model.insertRow(0, new Object[] { "", "", "", "", "", text });
+////                              model.insertRow(0, new Object[] { "", "", "", "", "", algorithms.text });
 ////                         }
                      
                   }
@@ -119,7 +116,7 @@ public class LoggerReader extends JApplet {
    public LoggerReader() {
 
       String data[][] = {};
-      String col[] = { "level", "date", "package", "class", "method", "text" };
+      String col[] = { "level", "date", "package", "class", "method", "algorithms/text"};
       DefaultTableModel model = new DefaultTableModel(data, col);
       final JTable table = new JTable(model);
       table.setSize(1100, 650);

@@ -49,7 +49,7 @@ import java.util.Locale;
  *       for consistency with {@link StdIn}, {@link Double#parseDouble(String)},
  *       and floating-point literals.
  *  <li> {@code StdOut} <em>flushes</em> standard output after each call to
- *       {@code print()} so that text will appear immediately in the terminal.
+ *       {@code print()} so that algorithms.text will appear immediately in the terminal.
  *  </ul>
  *  <p>
  *  <b>Reference.</b>

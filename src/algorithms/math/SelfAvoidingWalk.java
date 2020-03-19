@@ -7,7 +7,7 @@ package algorithms.math;
  * 
  * In mathematics, a self-avoiding walk (SAW) is a sequence of moves on a
  * lattice (a lattice path) that does not visit the same point more than once.
- * This is a special case of the graph theoretical notion of a path.
+ * This is a special case of the algorithms.graph theoretical notion of a path.
  * 
  * @author wendellopes
  *
