@@ -53,6 +53,7 @@ public class Connect2 {
 				System.exit(-1);
 			}
 
+
 			Session session = null;
 			Session[] sessions = new Session[arg.length];
 

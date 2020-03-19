@@ -1,4 +1,4 @@
-package clustering;
+package cogito4j;
 
 import Jama.Matrix;
 import algorithms.math.PearsonCorrelation;

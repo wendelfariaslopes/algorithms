@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class Property {
 	
-	private static final String PROPERTIES_PATH="C:\\Users\\wlopes\\git\\algorithms\\src\\programs\\io\\services.properties";
+	private static final String PROPERTIES_PATH="..\\algorithms\\src\\programs\\io\\services.properties";
 
 	public static String read(String key) {
 
