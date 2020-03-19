@@ -1,6 +1,6 @@
 package algorithms.ai.ml.image;
 
-import cogito4j.Metrics;
+import cogito4j.analysis.Metrics;
 
 public class SequencialFinder {
 

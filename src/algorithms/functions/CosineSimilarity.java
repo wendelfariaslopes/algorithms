@@ -63,7 +63,7 @@ public static double consineTextSimilarity(String[] left, String[] right) {
  * meaning exactly the same, with 0 usually indicating independence, and
  * in-between values indicating intermediate similarity or dissimilarity.
  * 
- * For text matching, the attribute vectors A and B are usually the term
+ * For algorithms.text matching, the attribute vectors A and B are usually the term
  * frequency vectors of the documents. The cosine similarity can be seen as
  * a method of normalizing document length during comparison.
  * 

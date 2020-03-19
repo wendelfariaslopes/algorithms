@@ -253,7 +253,7 @@ public class FileManager2 {
 	 * @param nameFile
 	 *            (absolute path - directory,folder,name file and extension)
 	 * @param content
-	 *            (text that you want to write in file)
+	 *            (algorithms.text that you want to write in file)
 	 * @param append
 	 *            (adding last line or not append=true/false)
 	 */

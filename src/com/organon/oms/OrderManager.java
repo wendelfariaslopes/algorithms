@@ -25,7 +25,7 @@ public class OrderManager {
 		      // to read the file data 
 		      Scanner input = new Scanner(System.in);
 
-		      // read the lines from the text file 
+		      // read the lines from the algorithms.text file
 		      while (input.hasNextLine()) { 
 		           orders.add(input.nextLine()); 
 		      } 

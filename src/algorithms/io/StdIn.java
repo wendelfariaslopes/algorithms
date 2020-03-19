@@ -119,7 +119,7 @@ import java.util.regex.Pattern;
  *  {@code \r\n} (Windows),
  *  {@code \}{@code u2028}, {@code \}{@code u2029}, or {@code \}{@code u0085}.
  *  <p>
- *  As an example, the following code fragment reads text from standard input,
+ *  As an example, the following code fragment reads algorithms.text from standard input,
  *  one line at a time, and prints it to standard output.
  *  <pre>
  *  while (StdIn.hasNextLine()) {
