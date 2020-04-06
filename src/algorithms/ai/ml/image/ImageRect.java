@@ -46,15 +46,15 @@ public class ImageRect {
 		
 		
 
-//		Graphics2D redRect = image.createGraphics();
-//		redRect.setColor(Color.RED);
-//		redRect.drawRect(x_red, y_red, w / 2, h / 2);
-//		redRect.dispose();
-//
-//		Graphics2D greenRect = image.createGraphics();
-//		greenRect.setColor(Color.GREEN);
-//		greenRect.drawRect(x_green, y_green, w / 2, h / 2);
-//		greenRect.dispose();
+		Graphics2D redRect = image.createGraphics();
+		redRect.setColor(Color.RED);
+		redRect.drawRect(x_red, y_red, w / 2, h / 2);
+		redRect.dispose();
+
+		Graphics2D greenRect = image.createGraphics();
+		greenRect.setColor(Color.GREEN);
+		greenRect.drawRect(x_green, y_green, w / 2, h / 2);
+		greenRect.dispose();
 
 
 		// store

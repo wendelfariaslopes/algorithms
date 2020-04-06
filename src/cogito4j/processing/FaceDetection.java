@@ -24,7 +24,7 @@ public class FaceDetection {
 //               {1,1,1,1,1,1},
 //               {1,1,1,1,1,1}};
 
-        double[][] I = getIntegralMatrixImage(originalMatrixImage);
+        double[][] I = getIntegralImage(originalMatrixImage);
 
         Jama.Matrix matrix = new Matrix(I);
         matrix.print(1,2);
@@ -44,12 +44,16 @@ public class FaceDetection {
         Jama.Matrix m = new Matrix(partI);
         m.print(1,2);
 
-        System.out.println("SumArea=I(C)+I(A)-I(B)-I(D) = "+getSumArea(x,y,w,h,I));
+        System.out.println("SumArea=I(C)+I(A)-I(B)-I(D) = "+getSummedArea(x,y,w,h,I));
+
+        Jama.Matrix edgeHorizontal = new Matrix(HaarFeature.getLineY(6,6));
+        edgeHorizontal.print(1,2);
 
     }
 
+    //Step 2 - Integral Image and Summed area table calculation
 
-    private static double[][] getIntegralMatrixImage(double[][] matrixImage){
+    private static double[][] getIntegralImage(double[][] matrixImage){
         int m = matrixImage.length;
         int n = matrixImage[0].length;
         double[][] integralMatrixImage = new double[m][n];
@@ -75,16 +79,7 @@ public class FaceDetection {
         return integralMatrixImage;
     }
 
-    /**
-     * SumArea=I(C)+I(A)-I(B)-I(D)
-     * where points A,B,C,D belong to the integral image I, as shown in the figure.
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @return
-     */
-    private static double getSumArea(int x, int y, int w, int h, double[][] I){
+    private static double getSummedArea(int x, int y, int w, int h, double[][] I){
         double A = I[y-1][x-1];
         System.out.println("ponto A = "+A);
         double B = I[y-1][x+(w-1)];
@@ -93,9 +88,8 @@ public class FaceDetection {
         System.out.println("ponto C = "+C);
         double D = I[y+(h-1)][x-1];
         System.out.println("ponto D = "+D);
-        //SumArea=I(C)+I(A)-I(B)-I(D)
+        //SumArea=I(C)+I(A)-I(B)-I(D) -> where points A,B,C,D belong to the integral image I, as shown in the figure.
         return C + A - B - D;
     }
-
 
 }

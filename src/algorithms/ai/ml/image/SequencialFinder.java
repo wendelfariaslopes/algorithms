@@ -22,15 +22,13 @@ public class SequencialFinder {
 		double percentSimilarityHigh = 0.95;
 		
 		
-			boolean test = true;
+		boolean test = true;
 		loopLine:
 		for(int i=0; i < (image.getWidth() - width+1); i++) {
 			for(int j=0; j < image.getHeight() - height+1; j++) {
 				java.awt.image.BufferedImage fractionImageToAnalise = image.getSubimage(i, j, width, height);
+
 				double[] fractionToAnalise = Image.imageToVector(fractionImageToAnalise);
-				
-				
-				
 				double similar = Metrics.pearson(fractionToAnalise, subVectorToFind);
 				
 				if (similar >= percentSimilarityLow && similar < percentSimilarityMedium) {

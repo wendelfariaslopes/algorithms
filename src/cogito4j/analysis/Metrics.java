@@ -2,6 +2,7 @@ package cogito4j.analysis;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.List;
 
 public class Metrics {
 
@@ -148,5 +149,15 @@ public class Metrics {
 		return pearson;
 	}
 
-	
+	////The algorithm works as 1 – ( P(class1)^2 + P(class2)^2 + … + P(classN)^2)
+	public static double giniIndex(){
+		return 0.0;
+	}
+
+	double gini(List<Double> values) {
+		double sumOfDifference = values.stream()
+				.flatMapToDouble(v1 -> values.stream().mapToDouble(v2 -> Math.abs(v1 - v2))).sum();
+		double mean = values.stream().mapToDouble(v -> v).average().getAsDouble();
+		return sumOfDifference / (2 * values.size() * values.size() * mean);
+	}
 }

@@ -22,7 +22,8 @@ import java.io.IOException;
  *
  */
 
-public class ImagemUtil {
+public class
+ImagemUtil {
   
 //    public static byte[] geraImagemThumb(byte[] imagemOriginal)
 //			throws InterruptedException, IOException {

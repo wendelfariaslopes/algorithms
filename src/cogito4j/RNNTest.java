@@ -22,14 +22,10 @@ public class RNNTest {
 	 */
 
 	public static void main(String[] args) {
-		
-		
+
 		System.out.println("\n-------- Start Training Set -------------\n");
-
-
 		int samples = 20;
 		int numBytes = 100;
-		
 		
 		Map<Integer,String> modelMap = DataFactory.createArtificialTrainingDataSet(samples, numBytes);
 		
