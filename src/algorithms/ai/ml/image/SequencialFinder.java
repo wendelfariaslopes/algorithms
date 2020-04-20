@@ -1,14 +1,13 @@
 package algorithms.ai.ml.image;
 
-<<<<<<< Upstream, based on origin/master
+
 import cogito4j.analysis.Metrics;
-=======
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Arrays;
 
-import cogito4j.Metrics;
->>>>>>> 7f38e6f Imagem vectorization fails
+
 
 public class SequencialFinder {
 
@@ -16,7 +15,6 @@ public class SequencialFinder {
 
 	public static void main(String[] args) {
 
-<<<<<<< Upstream, based on origin/master
 		String name = "cat_1";
 		String nameFile = name +"-reduce-by-90";
 		java.awt.image.BufferedImage image = Image.load(Image.DIR + nameFile+ ".jpg");
@@ -38,13 +36,13 @@ public class SequencialFinder {
 		for(int i=0; i < (image.getWidth() - width+1); i++) {
 			for(int j=0; j < image.getHeight() - height+1; j++) {
 				java.awt.image.BufferedImage fractionImageToAnalise = image.getSubimage(i, j, width, height);
-=======
+
 	
 		String origThreshold = "enrico-threshold.jpg";
 		String cropThreshold = "enrico-enquadrado-red.jpg";
->>>>>>> 7f38e6f Imagem vectorization fails
+//Imagem vectorization fails
 
-<<<<<<< Upstream, based on origin/master
+
 				double[] fractionToAnalise = Image.imageToVector(fractionImageToAnalise);
 				double similar = Metrics.pearson(fractionToAnalise, subVectorToFind);
 				
@@ -60,35 +58,31 @@ public class SequencialFinder {
 				
 				System.out.println("Finder in line = "+i+" colunm = "+j);
 			}
-=======
-		
-		BufferedImage img = ChannelSplitter.readImage(DIR +File.separator+ origThreshold);
-		BufferedImage imgCrop = ChannelSplitter.readImage(DIR +File.separator+ cropThreshold);
-		
-		int[]v = ChannelSplitter.vectorization(img);
-		System.out.println(v.length);
-		
-		
-		double[]X = copyFromIntArray(ChannelSplitter.vectorization(img));
-		
-		double[] crop = copyFromIntArray(ChannelSplitter.vectorization(imgCrop));
-		
-		
-		double[] x = new double[1000];
-		for(int c =0; c < 1000; c++) {
-			x[c] = crop[c];
->>>>>>> 7f38e6f Imagem vectorization fails
-		}
-<<<<<<< Upstream, based on origin/master
-		
-		
-=======
-	
->>>>>>> 7f38e6f Imagem vectorization fails
 
-<<<<<<< Upstream, based on origin/master
-=======
-		System.out.println(Arrays.toString(x));
+		
+		//BufferedImage img = ChannelSplitter.readImage(DIR +File.separator+ origThreshold);
+		//BufferedImage imgCrop = ChannelSplitter.readImage(DIR +File.separator+ cropThreshold);
+//		
+//		int[]v = ChannelSplitter.vectorization(img);
+//		System.out.println(v.length);
+//		
+//		
+//		double[]X = copyFromIntArray(ChannelSplitter.vectorization(img));
+//		
+//		double[] crop = copyFromIntArray(ChannelSplitter.vectorization(imgCrop));
+//		
+//		
+//		double[] x = new double[1000];
+//		for(int c =0; c < 1000; c++) {
+//			x[c] = crop[c];
+//
+//		}
+
+		
+		}		
+
+
+		//System.out.println(Arrays.toString(x));
 //
 
 //		double[] X = new double[samples];
@@ -117,8 +111,8 @@ public class SequencialFinder {
 		
 
 
-		System.out.println(indexOf(X, x));
-		double percentSimilarity = 0.90;
+		//System.out.println(indexOf(X, x));
+		//double percentSimilarity = 0.90;
 
 		//System.out.println(getSimilarityOf(X, x, percentSimilarity));
 
@@ -160,7 +154,7 @@ public class SequencialFinder {
 				return i;
 		}
 		return -1;
->>>>>>> 7f38e6f Imagem vectorization fails
+
 	}
 
 	public static int indexOf(double[] big, double[] small) {

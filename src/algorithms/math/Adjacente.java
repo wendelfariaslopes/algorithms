@@ -1,5 +1,4 @@
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
+
 /**
  * 
  */
