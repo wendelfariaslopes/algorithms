@@ -1,10 +1,10 @@
-package algorithms.io;
+package com.organon.oms.pricing;
 
-public class TF {
+public class IndicatorFundamental {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("hello");
+
 	}
 
 }

@@ -9,6 +9,21 @@ public class Order extends OrderBookRequest {
 	private boolean buy;
 	private double price;
 	
+	
+	
+	public Order(long id, long timestamp, String symbol, long qty, boolean buy, double price) {
+		super();
+		this.id = id;
+		this.timestamp = timestamp;
+		this.symbol = symbol;
+		this.qty = qty;
+		this.buy = buy;
+		this.price = price;
+	}
+	
+	public Order() {}
+		
+	
 	public long getId() {
 		return id;
 	}
