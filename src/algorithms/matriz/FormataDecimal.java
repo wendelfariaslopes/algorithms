@@ -1,12 +1,4 @@
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
 package algorithms.matriz;
-=======
-package matriz;
->>>>>>> 74ea2df Changes
-=======
-package algorithms.matriz;
->>>>>>> e7cfaf3 Changes in place
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
