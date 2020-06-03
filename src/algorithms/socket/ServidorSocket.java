@@ -1,6 +1,6 @@
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
+
 package algorithms.socket;
+
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -10,27 +10,9 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServidorSocket {
-=======
-package ftp;
-=======
-package algorithms.socket;
->>>>>>> e7cfaf3 Changes in place
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-
-<<<<<<< Upstream, based on origin/master
-public class Servidor {
->>>>>>> 74ea2df Changes
-=======
 public class ServidorSocket {
->>>>>>> e7cfaf3 Changes in place
+
 
 	/**
 	 * @param args

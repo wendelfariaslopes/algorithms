@@ -73,11 +73,6 @@ public class Image {
 		return image.getSubimage(rect.x, rect.y, rect.width, rect.height);
 	}
 
-<<<<<<< Upstream, based on origin/master
-	public static BufferedImage crop(BufferedImage image, int x, int y, int width, int height) {
-		return image.getSubimage(x, y, width, height);
-	}
-
 	public static int[] vectorization(BufferedImage image) {
 		int w = image.getWidth();
 		int h = image.getHeight();
@@ -153,13 +148,8 @@ public class Image {
 			}
 		}
 		return image;
-=======
+}
 
-	public static BufferedImage crop(BufferedImage src, Rectangle rect) {
-		BufferedImage dest = src.getSubimage(0, 0, rect.width, rect.height);
-		return dest;
->>>>>>> 7f38e6f Imagem vectorization fails
-	}
 
 	private static double scale(int w, int h, int size) {
 		double s = 1.0;

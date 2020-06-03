@@ -1,12 +1,6 @@
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
+
 package algorithms.math;
-=======
-package geometry;
->>>>>>> 74ea2df Changes
-=======
-package algorithms.math;
->>>>>>> e7cfaf3 Changes in place
+
 
 /*
  * vectorX, vectorY - Arrays of the x and y coordinates of the vertices, traced in a clockwise direction, starting at any vertex. 
