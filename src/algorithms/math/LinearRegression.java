@@ -1,12 +1,6 @@
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
+
 package algorithms.math;
-=======
-package Optimization;
->>>>>>> 74ea2df Changes
-=======
-package algorithms.math;
->>>>>>> e7cfaf3 Changes in place
+
 
 import algorithms.io.StdIn;
 import algorithms.io.StdOut;

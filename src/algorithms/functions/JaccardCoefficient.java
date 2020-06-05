@@ -1,15 +1,6 @@
-/**
- * 
- */
-<<<<<<< Upstream, based on origin/master
-<<<<<<< Upstream, based on origin/master
+
 package algorithms.functions;
-=======
-package functions;
->>>>>>> 74ea2df Changes
-=======
-package algorithms.functions;
->>>>>>> e7cfaf3 Changes in place
+
 
 import java.util.Arrays;
 import java.util.HashSet;
