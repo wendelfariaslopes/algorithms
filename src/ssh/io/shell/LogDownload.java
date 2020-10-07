@@ -13,6 +13,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 
+import edu.emory.mathcs.backport.java.util.Arrays;
 import ssh.io.Property;
 
 public class LogDownload {
@@ -20,16 +21,18 @@ public class LogDownload {
 	private static final String PATH_LOCAL_LOG = "C:\\Users\\wlopes\\Documents\\Logs\\";
 	private static final String PATH_REMOTE_LOG = "/app/core/log/";
 
-	private static final String user = Property.read("user");
-	private static final String password = Property.read("password");
+	//private static final String user = Property.read("user");
+	//private static final String password = Property.read("password");
+	private static final String user = "wlopes";
+	private static final String password = "#Enrico#Emmy#912980";
 
 	public static void main(String[] arg) {
 
-		String app = JOptionPane.showInputDialog("Name of app to download logs");
+		//String app = JOptionPane.showInputDialog("Name of app to download logs");
 
 		List<String> listHost = new ArrayList<>();
 		listHost.add("ny2-lia-001.uatdev.tradingscreen.com");
-		listHost.add(app);
+		listHost.add("uatdev-tsom-0-a");
 
 		arg = new String[listHost.size()];
 
@@ -75,10 +78,15 @@ public class LogDownload {
 
 			// List all files of the path
 			System.out.println();
-			System.out.println("List all file(s) of " + app);
+			//System.out.println("List all file(s) of " + app);
 			List<String> listAll = (List<String>) listFiles(PATH_REMOTE_LOG, session); // Get all files in this path
-			List<String> result = listAll.stream().filter(l -> l.startsWith(app+".log")).collect(Collectors.toList()); 
+			//List<String> result = listAll.stream().filter(l -> l.startsWith(app+".log")).collect(Collectors.toList()); 
 			System.out.println();
+			
+			// creating Arrays of String type 
+            String files[] = new String[] { "tsom-0-a.log.4", "tsom-0-a.log.5"}; 
+			
+			List<String> result = Arrays.asList(files);
 			
 			// Download processing
 			System.out.println("Start to download file(s)");

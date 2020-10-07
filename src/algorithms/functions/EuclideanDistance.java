@@ -1,9 +1,4 @@
-<<<<<<< Upstream, based on origin/master
-=======
-/**
- * 
- */
->>>>>>> e7cfaf3 Changes in place
+
 package algorithms.functions;
 
 /**
