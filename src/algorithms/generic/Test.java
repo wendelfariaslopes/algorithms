@@ -3,6 +3,7 @@ package algorithms.generic;
 public class Test {
 
 	public static void main(String[] args) {
+		
 		Bean<Portfolio> bp = new Bean<>();
 		Portfolio p = new Portfolio();
 		p.setId(10);

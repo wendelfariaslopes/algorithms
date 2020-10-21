@@ -13,25 +13,25 @@ public class NN {
   
     public static void main(String[] args) {
     	
-    	
-    	
   
-        double[][] X = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
-        double[][] Y = {{0}, {1}, {1}, {0}};
+        double[][] X = {{0, 0}, {0, 1}, {1, 0}, {1, 1}, {0, 1}, {1, 0}};
+        double[][] Y = {{0}, {1}, {1}, {0}, {1}, {1}};
 
-        int m = 4;
-        int nodes = 100;
+
+		int m = Y.length;
+		int nodes = X.length; 
+		int dataInfo = X[0].length;
 
         X = np.T(X);
         Y = np.T(Y);
 
-        double[][] W1 = np.random(nodes, 2);
+        double[][] W1 = np.random(nodes, dataInfo);
         double[][] b1 = new double[nodes][m];
 
         double[][] W2 = np.random(1, nodes);
         double[][] b2 = new double[1][m];
 
-        for (int i = 0; i < 4000; i++) {
+        for (int i = 0; i < 40000; i++) {
             
         	// Foward Prop
             // LAYER 1
@@ -83,7 +83,8 @@ public class NN {
 //        w2.print(0, 3);
 //        B2.print(0, 3);
         
-        double[][] XF = {{0, 0}, {0, 0}, {0, 0}, {0, 0}};
+        double[][] XF = {{0, 1}};
+        
         XF = np.T(XF);
         
         // LAYER 1

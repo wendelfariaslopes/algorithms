@@ -1,8 +1,3 @@
-
-/**
- * 
- */
-
 package algorithms.functions;
 
 /**

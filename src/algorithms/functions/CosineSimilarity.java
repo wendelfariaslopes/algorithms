@@ -1,8 +1,6 @@
 package algorithms.functions;
 
 
-
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -52,6 +50,25 @@ public static double consineTextSimilarity(String[] left, String[] right) {
     return consineVectorSimilarity(leftVector, rightVector);
 }
 
+/**
+ * The resulting similarity ranges from −1 meaning exactly opposite, to 1
+ * meaning exactly the same, with 0 usually indicating independence, and
+ * in-between values indicating intermediate similarity or dissimilarity.
+ * 
+ * For text matching, the attribute vectors A and B are usually the term
+
+ * frequency vectors of the documents. The cosine similarity can be seen as
+ * a method of normalizing document length during comparison.
+ * 
+ * In the case of information retrieval, the cosine similarity of two
+ * documents will range from 0 to 1, since the term frequencies (tf-idf
+ * weights) cannot be negative. The angle between two term frequency vectors
+ * cannot be greater than 90°.
+ * 
+ * @param leftVector
+ * @param rightVector
+ * @return
+ */
 private static double consineVectorSimilarity(int[] leftVector,
         int[] rightVector) {
     if (leftVector.length != rightVector.length)

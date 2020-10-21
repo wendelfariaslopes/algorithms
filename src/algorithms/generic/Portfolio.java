@@ -1,6 +1,6 @@
 package algorithms.generic;
 
-public class Portfolio extends Bean{
+public class Portfolio extends Bean<Object> {
 	
 	private int id;
 	private String name;

@@ -10,27 +10,42 @@
 
 	<dependencies>
 
+		<!-- JUnit-->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- 
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		 -->
+
 		<!-- https://mvnrepository.com/artifact/org.quickfixj/quickfixj-all -->
 		<dependency>
 			<groupId>org.quickfixj</groupId>
 			<artifactId>quickfixj-all</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
-<dependency>
-    <groupId>org.mariadb.jdbc</groupId>
-    <artifactId>mariadb-java-client</artifactId>
-    <version>2.5.3</version>
-</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
-<dependency>
-    <groupId>org.openpnp</groupId>
-    <artifactId>opencv</artifactId>
-    <version>3.2.0-0</version>
-</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
+		<dependency>
+			<groupId>org.openpnp</groupId>
+			<artifactId>opencv</artifactId>
+			<version>3.2.0-0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.5.3</version>
+		</dependency>
 
 
 
@@ -48,12 +63,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>com.yahoofinance-api</groupId>
@@ -113,8 +123,36 @@
 			<artifactId>jsch</artifactId>
 			<version>0.1.55</version>
 		</dependency>
+
+		<!-- GOOGLE CLOUD SHEET -->
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.30.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.30.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-sheets</artifactId>
+			<version>v4-rev581-1.25.0</version>
+		</dependency>
 		
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-drive</artifactId>
+			<version>v3-rev110-1.23.0</version>
+		</dependency>
 		
+		<dependency>
+		  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+		  <groupId>org.jsoup</groupId>
+		  <artifactId>jsoup</artifactId>
+		  <version>1.13.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

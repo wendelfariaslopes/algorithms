@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 import Jama.Matrix;
 
 public class RNNTest {
+	
+	private static final String EXPECTED = "Expected";
+	private static final String PREDICTED = "Predicted";
 
 	private static double[][] X;
 	private static double[][] Y;
@@ -18,10 +22,8 @@ public class RNNTest {
 
 	private double[][] W1;
 	private double[][] W2;
-	
-	public static List<Integer> listPositiveCases;
-	
 
+	private static double[][] XTest;
 	/*
 	 * -Xmx9000m -Xms6000m
 	 */
@@ -31,44 +33,72 @@ public class RNNTest {
 		int samples = 20;
 		int numBytes = 100;
 		
-		
-		Map<Integer,String> modelMap = generatorXY(samples, numBytes);
-
 		System.out.println();
-		System.out.println("---------- Start Training -------------");
+		System.out.println("---- Step 1 ------ Start Generating Data Training -------------");
 		System.out.println("");
 
-		Map<String, Double[][]> weightMap = learnFunction(X, Y);
-
+		Map<String,Double[][]> trainingData = generatorXY(samples, numBytes);
+		trainingData.forEach((k,v) -> System.out.println(k+" : "+v));
+		
+		
 		System.out.println();
-		System.out.println("---------- End Training -------------");
+		System.out.println("---------- End Generating Data Training ------- Step 1------");
 		System.out.println("");
 
 		System.out.println();
-		System.out.println("---------- Start Tests -------------");
+		System.out.println("----- Step 2----- Start Training -------------");
 		System.out.println("");
 		
-		double[][] w1 = castDoubleToPrimitiveDouble(weightMap.get("W1"));
-		double[][] w2 = castDoubleToPrimitiveDouble(weightMap.get("W2"));
-		double[][] b1 = castDoubleToPrimitiveDouble(weightMap.get("B1"));
-		double[][] b2 = castDoubleToPrimitiveDouble(weightMap.get("B2"));
+		Map<String,Map<String, Double[][]>> trainedFunctions = new TreeMap<>();
 		
-		modelMap.forEach((k,v)->{
-			
-			if(v.equals("Positive")) {
-				
+		for (String key : trainingData.keySet()) {
+			if(!key.contains("NO_")) {
+				double[][] Y = {{1}};
+				Map<String, Double[][]> weightMap = learnFunction(castDoubleToPrimitiveDouble(trainingData.get(key)), Y);
+				trainedFunctions.put(key, weightMap);
 			}
+		}
+//
+//		Map<String, Double[][]> weightMap = learnFunction(X, Y);
+//
 		
+		System.out.println("Size = "+trainedFunctions.hashCode());
+		System.out.println();
+		
+		System.out.println("---------- End Training ------ Step 2-------");
+		System.out.println("");
+//
+		System.out.println();
+		System.out.println("---- Step 3------ Start Tests -------------");
+		System.out.println("");
+//
+		
+		trainedFunctions.forEach((k,v) -> {
+			
+			System.out.println(k);
+			
+			double[][] w1 = castDoubleToPrimitiveDouble(v.get("W1"));
+			double[][] w2 = castDoubleToPrimitiveDouble(v.get("W2"));
+			double[][] b1 = castDoubleToPrimitiveDouble(v.get("B1"));
+			double[][] b2 = castDoubleToPrimitiveDouble(v.get("B2"));
+			
+			System.out.println("");
+			
+			double[][] XTest = generateTest(1, numBytes);
+			testLearnFunction(XTest, w1, w2, b1, b2);
 		});
 		
+		
 
-		testLearnFunction(X, w1,w2,b1,b2);
-
-
+//
+//		generateTest(20, numBytes); // quatro cats criados
+//
+//		testLearnFunction(XTest, w1, w2, b1, b2);
+//
 		System.out.println();
 		System.out.println("---------- End Tests -------------");
 		System.out.println("");
-
+//
 		System.out.println("--------------------------------------------");
 		System.out.println("#######------- FINISHED PROGRAM  -------####");
 		System.out.println("--------------------------------------------");
@@ -79,7 +109,7 @@ public class RNNTest {
 
 		Map<String, Double[][]> weightMap = new HashMap<>();
 
-		int cycles = 4000;
+		int cycles = 40000;
 
 		int m = Y.length;
 		int nodes = X.length; // hidden layer size
@@ -92,6 +122,8 @@ public class RNNTest {
 
 		X = np.T(X);
 		Y = np.T(Y);
+		
+		int n = 0;
 
 		for (int i = 0; i < cycles; i++) {
 
@@ -105,7 +137,7 @@ public class RNNTest {
 			double[][] A2 = np.sigmoid(Z2);
 			// double[][] A2 = np.relu(Z2);
 
-			if (i == cycles - 1) {//store learned 
+			if (i == cycles - 1) {// store learned
 				weightMap.put("W1", castPrimitiveDoubleToDouble(W1));
 				weightMap.put("W2", castPrimitiveDoubleToDouble(W2));
 				weightMap.put("B1", castPrimitiveDoubleToDouble(b1));
@@ -154,6 +186,14 @@ public class RNNTest {
 		np.print("A2 = " + Arrays.deepToString(A2));
 	}
 
+	public static double testLearnedFunction(double[][] X, double[][] W1, double[][] W2, double[][] b1, double[][] b2) {
+		double[][] Z1 = np.add(np.dot(W1, X), b1);
+		double[][] A1 = np.sigmoid(Z1);
+		double[][] Z2 = np.add(np.dot(W2, A1), b2);
+		double[][] A2 = np.sigmoid(Z2);
+		return A2[0][0];
+	}
+
 	public static void testLearnFunction(double[] X, double[][] W1, double[][] W2, double[][] b1, double[][] b2) {
 		// Criamos aqui uma matrix que para passar por todos os treinos realisados
 		double[][] o = new double[W1.length][X.length];
@@ -170,19 +210,23 @@ public class RNNTest {
 	}
 
 	// criando dados simulados para testes
-	private static Map<Integer,String> generatorXY(int samples, int numBytes) {
-		
-		Map<Integer,String> modelMap = new HashMap<>();
-		
+	private static Map<String, Double[][]> generatorXY(int samples, int numBytes) {
+
+		Map<String, Double[][]> modelMap = new HashMap<>();
+
 		Random r = new Random();
 
 		X = new double[samples][numBytes];
 		Y = new double[samples][1];
+		
 
 		for (int m = 0; m < samples; m++) {
+
+			String valueY = "";
 			
-			if (m % 2 == 0 || m % 5 == 0 || m % 7 == 0) { // todos as posicoes no arrays que sao gatos sao pares ou divididos por 7 ...
-								// acao arbitraria.
+			if (m % 2 == 0 || m % 5 == 0 || m % 7 == 0) { // todos as posicoes no arrays que sao gatos sao pares ou
+															// divididos por 7 ...
+				// acao arbitraria.
 				// Gerando dados in bytes aleatorios
 				for (int n = 0; n < numBytes; n++) {
 					if (n >= numBytes / 2) {
@@ -192,18 +236,19 @@ public class RNNTest {
 					}
 				}
 				Y[m][0] = 1; // igual ao Cat (valor 1)
-				modelMap.put(m, "Positive");
-				listPositiveCases.add(m);
+				valueY=EXPECTED+"_"+m;
+
 			} else {
 				// Gerando dados in bytes aleatorios
 				for (int n = 0; n < numBytes; n++) {
 					X[m][n] = r.nextDouble() + 0.0001;
 				}
 				Y[m][0] = 0; // diff Cat (valor 0)
-				modelMap.put(m, "Negative");
+				valueY="NO_"+EXPECTED+"_"+m;
 			}
+			modelMap.put(valueY, castPrimitiveDoubleToDouble(X));
 		}
-		
+
 		return modelMap;
 	}
 
@@ -226,5 +271,24 @@ public class RNNTest {
 		}
 		return matrixDouble;
 	}
+
+	public static double[][] generateTest(int samples, int numBytes) {
+
+		double[][] XTest = new double[samples][numBytes];
+
+		for (int m = 0; m < samples; m++) {
+			// Gerando dados in bytes aleatorios
+			for (int n = 0; n < numBytes; n++) {
+				if (n >= numBytes / 2) {
+					XTest[m][n] = 0.99;
+				} else {
+					XTest[m][n] = 0.000001;
+				}
+			}
+		}
+		return XTest;
+	}
+
+
 
 }

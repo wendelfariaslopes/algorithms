@@ -38,6 +38,28 @@ public class IndicatorTechnical {
 		return 2.0;
 	}
 	
+//	public static double getRSI2(List<PriceBean> listPriceBean){
+//
+//		AverageGainLoss AVG = new AverageGainLoss(listPriceBean);
+//		
+//		double RS = AVG.getFirstGainAverage()/AVG.getFirstLossAverage(); 
+//		
+//		double rsi = 100 - 100/(RS+1);
+//		
+//		return rsi;
+//	}
+//	
+//	public static double getRSI2(List<PriceBean> listPriceBean, int period){
+//
+//		AverageGainLoss AVG = new AverageGainLoss(listPriceBean, period);
+//		
+//		double RS = AVG.getFirstGainAverage()/AVG.getFirstLossAverage(); 
+//		
+//		double rsi = 100 - 100/(RS+1);
+//		
+//		return rsi;
+//	}
+	
 	public static double getRSI(List<PriceBean> listPriceBean){
 
 		//listPriceBean = new ArrayList<>();
@@ -80,5 +102,44 @@ public class IndicatorTechnical {
 		
 		return rsi;
 	}
+	
+	
 
+
+	public static double getVWAP(List<PriceBean> listPriceBean) {
+		
+		//step 1) Choose your time frame (tick chart, 1 minute, 5 minutes, etc.)
+		
+		//step 2) Calculate the typical price for the first period (and all periods in the day following). 
+		//		  Typical price is attained by taking adding the high, low and close, and dividing by three: (H+L+C)/3
+		
+		//step 3) Multiply this typical price by the volume for that period. This will give you a value called TPV.
+		
+		//step 4) Keep a running total of the TPV values, called cumulative-TPV. This is attained by continually adding 
+		//the most recent TPV to the prior values (except for the first period, since there will be no prior value). 
+		// This figure should get larger as the day progresses.
+		
+		
+		//step 5) Keep a running total of cumulative volume. Do this by continually adding the most recent volume to the prior volume. 
+		//This number should also get larger as the day progresses.
+		
+		//step 6) Calculate VWAP with your information: [cumulative TPV ÷ cumulative volume]. This will provide 
+		//a volume weighted average price for each period and will provide the data to create the flowing line that 
+		//overlays the price data on the chart.
+		
+	
+		double cumulativeTPV = 0.0;
+		double cumulativeVolume = 0.0;
+		
+		for (PriceBean priceBean : listPriceBean) {
+			double typicalPrice = (priceBean.getHigh()+priceBean.getLow()+priceBean.getClose())/3;
+			double volume = priceBean.getVolume();
+			double TPV = typicalPrice*volume;
+			cumulativeTPV+=TPV;
+			cumulativeVolume+=volume;
+			
+		}
+		
+		return cumulativeTPV/cumulativeVolume;
+	}
 }

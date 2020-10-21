@@ -12,6 +12,10 @@ public class PriceBean {
 	private double close;
 	private double adjClose;
 	private long volume;
+	
+	public PriceBean() {
+		
+	}
 
 	public PriceBean(long timeline, Date date, double open, double low, double high, double close, double adjClose,
 			long volume) {
