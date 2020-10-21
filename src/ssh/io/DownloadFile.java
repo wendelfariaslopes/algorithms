@@ -38,21 +38,21 @@ public class DownloadFile {
 
 	private static final String user = "wlopes";
 	private static final String password = "#Enrico#Emmy#912980";
-	//private static final String host = "ny2-lia-001.uatdev.tradingscreen.com"; // UAT-DEV machine for wiseguy
-	private static final String host = "ny2-lia-001.uatprod.tradingscreen.com";
+	private static final String host = "ny2-lia-001.uatprod.tradingscreen.com"; // UAT-DEV machine for wiseguy
+	//private static final String host = "ny2-lia-001.uatprod.tradingscreen.com";
 	// // UAT-DEV machine for wiseguy
 	// private static final String host = "ny2-lia-001.prod.tradingscreen.com"; //
 	// PROD machine for wiseguy
 	private static final int port = 22;
 
 	public static void main(String[] args) {
-
-		String remote = "/data/versions/wiseguy/log/uatprod/checklog-20191129-153653-cron.log";
+////data/versions/wiseguy/log/uatdev/checklog-20200512-131049-cron.log
+		String remote = "/data/wiseguy/log/uatprod/checklog-20200618-204429-cron.log";
 
 		// String remote =
 		// "/data/versions/wiseguy/log/prod/status-20191108-195145-adhoc.log"; // My
 		// MacBook
-		String local = "C:\\Users\\wlopes\\IdeaProjects\\slog\\src\\main\\resources\\input\\checklog-20191129-153653-cron.log"; // local
+		String local = "C:\\Users\\wlopes\\IdeaProjects\\slog\\src\\main\\resources\\input\\checklog-20200618-204429-cron.log"; // local
 																																// windows
 																																// machine
 
