@@ -4,6 +4,7 @@ import java.util.Random;
 
 import Jama.Matrix;
 
+
 public class LinearEquation {
 	
 	private static final String[] var = { "x", "y", "z", "r", "s", "t", "u", "w", "a", "b", "c", "d", "e", "f" };

@@ -1,8 +1,7 @@
 
 package algorithms.functions;
 
-<<<<<<< HEAD
-=======
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,9 +10,7 @@ import java.util.regex.Pattern;
 
 import algorithms.text.Lexical;
 import algorithms.text.SortMap;
->>>>>>> branch 'master' of https://github.com/wendellopesfarias/algorithms
 
-<<<<<<< HEAD
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -27,8 +24,7 @@ import java.util.regex.Pattern;
 
 import algorithms.text.Lexical;
 import algorithms.text.SortMap;
-=======
->>>>>>> branch 'master' of https://github.com/wendellopesfarias/algorithms
+
 
 
 public class FrequencyWord {

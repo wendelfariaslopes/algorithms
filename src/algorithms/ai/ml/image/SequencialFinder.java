@@ -3,10 +3,6 @@ package algorithms.ai.ml.image;
 
 import cogito4j.analysis.Metrics;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.Arrays;
-
 
 
 public class SequencialFinder {

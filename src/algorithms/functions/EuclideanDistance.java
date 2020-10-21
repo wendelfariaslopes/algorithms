@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/wendellopesfarias/algorithms
 package algorithms.functions;
 
 /**

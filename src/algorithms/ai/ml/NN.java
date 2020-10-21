@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import Jama.Matrix;
 
+
+
 public class NN {
 	
 	private static Matrix w1;

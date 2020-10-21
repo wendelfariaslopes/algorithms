@@ -35,7 +35,6 @@
 			<version>2.1.0</version>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
 		<dependency>
 			<groupId>org.openpnp</groupId>
@@ -48,7 +47,6 @@
 			<version>2.5.3</version>
 		</dependency>
 
-=======
 		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
@@ -62,7 +60,6 @@
 			<artifactId>opencv</artifactId>
 			<version>3.2.0-0</version>
 		</dependency>
->>>>>>> branch 'master' of https://github.com/wendellopesfarias/algorithms
 
 
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -140,7 +137,6 @@
 			<version>0.1.55</version>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- GOOGLE CLOUD SHEET -->
 		<dependency>
 			<groupId>com.google.api-client</groupId>
@@ -170,8 +166,7 @@
 		  <artifactId>jsoup</artifactId>
 		  <version>1.13.1</version>
 		</dependency>
-=======
->>>>>>> branch 'master' of https://github.com/wendellopesfarias/algorithms
+
 	</dependencies>
 
 	<build>

@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 
 import Jama.Matrix;
 
+
 public class RNN {
 
 	private static Matrix w1;

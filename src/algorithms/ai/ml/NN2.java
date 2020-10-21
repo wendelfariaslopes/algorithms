@@ -1,10 +1,8 @@
 package algorithms.ai.ml;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-
 import Jama.Matrix;
+
 
 public class NN2 {
 	
@@ -106,14 +104,14 @@ public class NN2 {
     }
 
     //map all objects tranformed in Key=Object, value=X[][] for calculation 
-    public static double[][] listOfObjects(List<Bean> list, int numberAttributs){
-    	
-    	double[][] X = new double[list.size()][numberAttributs];
-    	
-    	
-    	
-    	return X;
-    }
+//    public static double[][] listOfObjects(List<Bean> list, int numberAttributs){
+//    	
+//    	double[][] X = new double[list.size()][numberAttributs];
+//    	
+//    	
+//    	
+//    	return X;
+//    }
     
     
 }
