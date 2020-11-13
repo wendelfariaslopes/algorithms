@@ -11,8 +11,6 @@ public class Crawler {
 		
 		String url = "https://finance.yahoo.com/screener/predefined/aggressive_small_caps?offset=0&count=202";
 		
-		
-		
 		 try {
 			Document doc = Jsoup.connect(url).get();
 			
