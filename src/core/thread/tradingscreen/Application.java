@@ -31,7 +31,7 @@ public class Application implements ThreadFactory {
 	private ScheduledExecutorService singleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor(this);
 
 	public static void main(String[] args) throws InterruptedException {
-		repeat();
+		
 	}
 
 	public void executeOnPooledThread(Runnable runnable) {
@@ -51,17 +51,6 @@ public class Application implements ThreadFactory {
 		return thread;
 	}
 	
-	public static void repeat() throws InterruptedException {
-		CountDownLatch lock = new CountDownLatch(3);
-		 
-		ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
-		ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
-		    System.out.println("Hello World");
-		    lock.countDown();
-		}, 500, 100, TimeUnit.MILLISECONDS);
-		 
-		lock.await(1000, TimeUnit.MILLISECONDS);
-		future.cancel(true);
-	}
+
 
 }

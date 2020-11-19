@@ -43,7 +43,7 @@ public class CountDownLatchDemo {
 		// threads and start them.
 		Worker first = new Worker(1000, latch, "WORKER-1");
 		Worker second = new Worker(2000, latch, "WORKER-2");
-		Worker third = new Worker(3000, latch, "WORKER-3");
+		Worker third = new Worker(1000, latch, "WORKER-3");
 		Worker fourth = new Worker(4000, latch, "WORKER-4");
 		first.start();
 		second.start();
