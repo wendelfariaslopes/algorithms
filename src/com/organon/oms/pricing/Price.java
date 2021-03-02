@@ -27,11 +27,11 @@ public class Price {
 
 		Calendar from = Calendar.getInstance();
 		Calendar to = Calendar.getInstance();
-		from.add(Calendar.MONTH, -2); // from 1 UNIT ago
+		from.add(Calendar.MONTH, -1); // from 1 UNIT ago
 
 		Stock stock = null;
 		try {
-			stock = YahooFinance.get("TSLA");
+			stock = YahooFinance.get("GOOGL");
 			histQuotes = stock.getHistory(from, to, Interval.DAILY);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

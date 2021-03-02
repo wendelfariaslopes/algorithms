@@ -32,14 +32,10 @@ public class MovingAverage {
 		first_SMA = first_SMA / period;
 		first_EMA = first_SMA;
 		
-		
-		
-		
 		double next_SMA = first_SMA;
 		for(PriceBean priceBean : secondList) {
 			next_SMA = (next_SMA * (period-1) + priceBean.getAdjClose())/period;
 		}
-		
 
 	}
 

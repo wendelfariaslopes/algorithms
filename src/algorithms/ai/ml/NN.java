@@ -33,7 +33,7 @@ public class NN {
         double[][] W2 = np.random(1, nodes);
         double[][] b2 = new double[1][m];
 
-        for (int i = 0; i < 40000; i++) {
+        for (int i = 0; i < 4000; i++) {
             
         	// Foward Prop
             // LAYER 1
@@ -46,7 +46,7 @@ public class NN {
             double cost = np.cross_entropy(m, Y, A2);
             //costs.getData().add(new XYChart.Data(i, cost));
          
-         // Back Prop
+            // Back Prop
             //LAYER 2
             double[][] dZ2 = np.subtract(A2, Y);
             double[][] dW2 = np.divide(np.dot(dZ2, np.T(A1)), m);

@@ -1,6 +1,9 @@
 package algorithms.socket;
 
 import java.net.*;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
 
 import java.io.*;
 
@@ -10,7 +13,9 @@ public class ServerSide extends Thread {
 
 	public ServerSide(int port) throws IOException {
 		serverSocket = new ServerSocket(port);
-		serverSocket.setSoTimeout(10000);
+		int timeOut = Integer.parseInt(JOptionPane.showInputDialog( "Wait request from Client for (seconds):"));
+		
+		serverSocket.setSoTimeout(timeOut * 1000);
 	}
 
 	public void run() {
@@ -19,7 +24,7 @@ public class ServerSide extends Thread {
 				System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
 				Socket server = serverSocket.accept();
 
-				System.out.println("Just connected to " + server.getRemoteSocketAddress());
+				//System.out.println("Just connected to " + server.getRemoteSocketAddress());
 				
 				DataInputStream in = new DataInputStream(server.getInputStream());
 
@@ -28,7 +33,7 @@ public class ServerSide extends Thread {
 				
 				DataOutputStream out = new DataOutputStream(server.getOutputStream());
 
-				out.writeUTF("Thank you for connecting to " + server.getLocalSocketAddress() + "\nGoodbye!");
+				out.writeUTF("Thank you for connecting to " + server.getLocalSocketAddress() + " "+new Date());
 				
 				server.close();
 
@@ -42,14 +47,15 @@ public class ServerSide extends Thread {
 		}
 	}
 
-//	public static void main(String[] args) {
-//		int port = Integer.parseInt(args[0]);
-//		try {
-//			Thread t = new ServerSide(port);
-//			t.start();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void main(String[] args) {
+		int port = Integer.parseInt("6071");
+		try {
+			Thread t = new ServerSide(port);
+			t.start();
+			//t.sleep(5000);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
