@@ -9,10 +9,10 @@ import com.jcraft.jsch.SftpException;
 
 public class SlogDownloadFile  {
 	
-	private static String NAME_FILE = "checklog-20210313-140548-cron.log";
-	private static String ENVIRONMENT = "prod";
+	private static String NAME_FILE = "tsom_upgrade_mc_VERS_CH-50941-20210420-092844-adhoc.log";
+	private static String ENVIRONMENT = "uatdev";
 
-	private static final String PATH_REMOTE = "/data/wiseguy/log/";
+	private static final String PATH_REMOTE = "/data/versions/wiseguy/log/adhoc/";
 	private static final String PATH_LOCAL = "C:\\Users\\wlopes\\IdeaProjects\\slog\\src\\main\\resources\\input\\";
 	private static final String user = "wlopes";
 	private static final String password = "#Enrico#Emmy#912980";
@@ -23,7 +23,7 @@ public class SlogDownloadFile  {
 
 		SlogDownloadFile s = new SlogDownloadFile();
 
-		String remote = PATH_REMOTE + ENVIRONMENT + "/" + NAME_FILE;
+		String remote = "/data/versions/wiseguy/log/adhoc/tsom_upgrade_mc_VERS_CH-50941-20210420-092844-adhoc.log";
 		String local = PATH_LOCAL + NAME_FILE;
 
 		System.out.println("ENVIRONMENT: " + ENVIRONMENT);

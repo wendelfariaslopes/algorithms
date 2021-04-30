@@ -15,8 +15,8 @@ package algorithms.math;
 public class SelfAvoidingWalk {
 
 	public static void main(String[] args) {
-		int n = Integer.parseInt(args[0]); // lattice size
-		int trials = Integer.parseInt(args[1]); // number of trials
+		int n = Integer.parseInt("2"); // lattice size
+		int trials = Integer.parseInt("20"); // number of trials
 		int deadEnds = 0; // trials resulting in a dead end
 
 		// simulate trials self-avoiding walks
